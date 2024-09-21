@@ -1,6 +1,6 @@
 # CodeYing-DevRepo
 
-Welcome to the **CodeYing-DevRepo**! This repository is a collection of scripts, digital files, and resources related to my personal web development, starting up my personal brand **[CodeYing \<\Y>](https://weiyinghuang.com)**.
+Welcome to the **CodeYing-DevRepo**! This repository is a collection of scripts, digital files, and resources related to my personal web development, starting up my personal brand **[CodeYing \<Y/>](https://weiyinghuang.com)**.
 
 ## About
 
