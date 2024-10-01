@@ -1,0 +1,165 @@
+/* default style*/
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #187ed1;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 72px;
+  margin-bottom: 20px;
+  font-family: 'Press Start 2P', cursive;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 #000000;
+}
+
+h2 {
+  font-size: 48px;
+  color: #a724ee;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  text-align: center;
+  text-shadow: 3px 3px 0 #FFD700,
+                -2px -2px 0 #7FFF00,
+                2px -2px 0 #1E90FF,
+                -2px 2px 0 #FF4500;
+  padding: 20px 0;
+}
+
+p {
+  font-size: 18px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #42b983;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #3a9b73;
+}
+
+/* buttons */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.button-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #0151b9;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.button-container button:hover {
+  background-color: #0c19ac;
+}
+
+.clear-button {
+  padding: 11px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f44336;
+  color: #ffffff;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s;
+}
+.clear-button:hover {
+  background-color: #c62828;
+}
+
+.level-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+.level-button {
+  padding: 18px 40px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #6200ea;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.level-button:hover {
+  background-color: #3700b3;
+  transform: scale(1.05);
+}
+.level-button:disabled {
+  background-color: #a9a9a9;
+  color: #d3d3d3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* headings */
+.level-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.level-title h3 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ebe6c4;
+  font-family: 'Comic Sans MS', 'Chalkboard', 'cursive';
+}
+
+/* containers */
+.container {
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  background-color: #1f263348;
+  border: 5px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  width: auto; 
+  height: auto; 
+  max-width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+  padding: 4.5px;
+}
+
+.puzzle-frame {
+  display: grid;
+  gap: 2px;
+}
+.puzzle-piece {
+  display: block;
+  border: 1.5px solid #ffffff;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-size: cover;
+}
+.puzzle-piece:hover {
+  transform: scale(1.02);
+  border: 2.5px solid #ffc252e2;
+}
