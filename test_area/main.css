@@ -1,0 +1,78 @@
+:root {
+  font-size: 16px;
+  font-family: 'Open Sans';
+
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --bg-primary: #f3f3f3;
+  --bg-secondary: #ffffff;
+
+  --scrollbar-width: 0.25rem;
+  --scrollbar-track: #c6c6c6;
+  --scrollbar-track-border-radius: 4px;
+  --scrollbar-thumb: rgb(131, 131, 131);
+  --scrollbar-thumb-border-radius: 4px;
+
+  /* main */
+  --main-margin-top: 0rem;
+  --main-padding: 3.5rem;
+  /* nav */
+  --menubar-height: 4rem;
+  --sidebar-wide: 5rem;
+  --sidebar-height: 4rem;
+  /* button tooltip */
+  --tooltip-background-color: #e7e7e7;
+  --tooltip-text-color: #333;
+}
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+body.dark-mode {
+  --text-primary: #ececec;
+  --text-secondary: #b6b6b6;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+
+  --scrollbar-track: #49494b;
+  --scrollbar-thumb: rgb(124, 121, 121);
+
+  --tooltip-background-color: #333;
+  --tooltip-text-color:#fff;
+}
+body::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+body::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: var(--scrollbar-track-border-radius);
+}
+body::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: var(--scrollbar-thumb-border-radius);
+}
+
+main {
+  padding: var(--main-padding);
+  margin-top: var(--main-margin-top);
+}
+
+footer {
+  z-index: 1;
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--background-color);
+  color: var(--text-secondary);
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
