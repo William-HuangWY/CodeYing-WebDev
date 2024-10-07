@@ -3,38 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CodeYing</title>
+  <meta name="description" content="Explore tech development and innovation at CodeYing. Dive into software engineering, tutorials, and projects. Learn from William Huang's tech insights and experience.">
+  <meta name="keywords" content="CodeYing, software tutorials, web development, programming, coding, full-stack development, technology">
+  <meta name="author" content="William Huang">
+  <meta property="og:title" content="CodeYing | Tech Development & Innovation">
+  <meta property="og:description" content="Explore tech projects, development tutorials, and innovation insights by William Huang.">
+  <meta property="og:image" content="https://weiyinghuang.com/static/img/global/logo/CodeYing-Logo.png">
+  <meta property="og:url" content="https://weiyinghuang.com">
+
+  <link rel="icon" href="https://weiyinghuang.com/static/img/global/favicon/CodeYing-Favicon.ico" type="image/x-icon">
+  <!-- <link rel="stylesheet" href="https://weiyinghuang.com/static/css/main.css"> -->
   <link rel="stylesheet" href="static/css/main.css">
-  <link rel="stylesheet" href="static/css/home.css">
+  <link rel="stylesheet" href="static/css/globalComponents.css">
+  <link rel="stylesheet" href="static/css/home/app.css">
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.prod.js"></script>
+  <!-- <script src="https://weiyinghuang.com/static/js/main.js"></script> -->
+  <script src="static/js/main.js"></script>
+  <script src="static/js/globalComponents.js"></script>
+  <title>CodeYing | Tech Development & Innovation</title>
 </head>
 <body>
-  <script src="static/js/home.js"></script>
-  <div class="container">
-    <!-- <canvas class="main-canvas"></canvas> -->
-    <h1>👋 Welcome to Wei-Ying Huang (William)'s Website!</h1> <!-- 🎉 -->
-    <p><ins>This website is still under construction.</ins></p>
-    <!-- <button class="clap-button" onclick="clap()">👏</button> -->
+  <main id="app" class="container">
+    <navbars></navbars>
+    <router-view></router-view>
 
-    <div class="project-container">
-      <h2>See Our Current Working Projects</h2>
-      <div class="project-card">
-        <h3>1. NSYSU Dormitory Washing Machine IoT</h3>
-        <a href="iot/nsysu-dormitory-washing-machine/">
-          <img src="static\img\iot\nsysu\dormitory-washing-machine.png" alt="Project Image">
-        </a>
-        <div class="project-info">
-          <p>Utilizing Tuya smart plugs installed on washing machine sockets in school dormitories to mediate and monitor electrical signals with querying interfaces.</p>
-          <a href="iot/nsysu-dormitory-washing-machine/" target="_blank">Visit Site</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
+    <h1>Welcome to CodeYing</h1>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam assumenda excepturi recusandae eius laborum laboriosam numquam expedita mollitia enim veritatis! Debitis tempora ea explicabo libero. Officia, quia ratione! Ad, fugiat! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et debitis corporis necessitatibus fuga vero totam sunt, maiores saepe itaque architecto? Consequatur molestias dolores molestiae distinctio voluptatem iusto nemo, aut excepturi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, blanditiis, distinctio delectus ex perspiciatis, ratione provident libero asperiores numquam placeat nihil. Ullam saepe distinctio a dicta fugiat reiciendis voluptate! Repellendus.</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam assumenda excepturi recusandae eius laborum laboriosam numquam expedita mollitia enim veritatis! Debitis tempora ea explicabo libero. Officia, quia ratione! Ad, fugiat! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et debitis corporis necessitatibus fuga vero totam sunt, maiores saepe itaque architecto? Consequatur molestias dolores molestiae distinctio voluptatem iusto nemo, aut excepturi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, blanditiis, distinctio delectus ex perspiciatis, ratione provident libero asperiores numquam placeat nihil. Ullam saepe distinctio a dicta fugiat reiciendis voluptate! Repellendus.</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam assumenda excepturi recusandae eius laborum laboriosam numquam expedita mollitia enim veritatis! Debitis tempora ea explicabo libero. Officia, quia ratione! Ad, fugiat! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et debitis corporis necessitatibus fuga vero totam sunt, maiores saepe itaque architecto? Consequatur molestias dolores molestiae distinctio voluptatem iusto nemo, aut excepturi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, blanditiis, distinctio delectus ex perspiciatis, ratione provident libero asperiores numquam placeat nihil. Ullam saepe distinctio a dicta fugiat reiciendis voluptate! Repellendus.</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam assumenda excepturi recusandae eius laborum laboriosam numquam expedita mollitia enim veritatis! Debitis tempora ea explicabo libero. Officia, quia ratione! Ad, fugiat! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et debitis corporis necessitatibus fuga vero totam sunt, maiores saepe itaque architecto? Consequatur molestias dolores molestiae distinctio voluptatem iusto nemo, aut excepturi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, blanditiis, distinctio delectus ex perspiciatis, ratione provident libero asperiores numquam placeat nihil. Ullam saepe distinctio a dicta fugiat reiciendis voluptate! Repellendus.</p>
+  </main>
 
   <footer>
-    <div class="contact-info">
-      <p>For inquiries, please contact the hoster via email: <a href="mailto:8334551will@gmail.com">8334551will@gmail.com</a></p>
-    </div>
+    <p>&copy; 2024 William Huang | Email:&nbsp;</p>
+    <a href="mailto:8334551will@gmail.com">8334551will@gmail.com</a>
   </footer>
+
+  <!-- <script src="https://weiyinghuang.com/....js"></script> -->
+  <script src="static/js/home/app.js"></script>
+  <script src="static/js/home/app.vue.js"></script>
 </body>
 </html>
