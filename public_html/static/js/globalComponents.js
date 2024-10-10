@@ -224,3 +224,34 @@ const navBars = {
     <sidebar></sidebar>
     `,
 };
+
+const heroSection = {
+    data() {
+        return {
+            className: 'hero',
+        };
+    },
+    methods: {
+
+    },
+    mounted () {
+
+    },
+    template: `
+      <section :class="className + '-container'">
+        <div :class="className + '-content'">
+          <div :class="className + '-icon'">
+            <div :class="className + '-icon-line-gradient'"></div>
+          </div>
+
+          <div :class="className + '-text'">
+            <h1>Hi, Welcome to <span :class="className + '-highlight-text'">CodeYing</span></h1>
+            <p>
+              Building Seamless Solutions,<br/>
+              Engaging User Interfaces and Software Applications
+            </p>
+          </div>
+        </div>
+      </section>
+    `,
+};

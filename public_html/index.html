@@ -24,15 +24,16 @@
   <script src="static/js/globalComponents.js"></script>
   <title>CodeYing | Tech Development & Innovation</title>
 </head>
-<body>
-  <main id="app" class="container">
+<body id="app">
+  <header>
     <navbars></navbars>
+  </header>
+
+  <main class="container">
     <router-view></router-view>
+    <herosection></herosection>
 
     <h1>Welcome to CodeYing</h1>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam assumenda excepturi recusandae eius laborum laboriosam numquam expedita mollitia enim veritatis! Debitis tempora ea explicabo libero. Officia, quia ratione! Ad, fugiat! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et debitis corporis necessitatibus fuga vero totam sunt, maiores saepe itaque architecto? Consequatur molestias dolores molestiae distinctio voluptatem iusto nemo, aut excepturi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, blanditiis, distinctio delectus ex perspiciatis, ratione provident libero asperiores numquam placeat nihil. Ullam saepe distinctio a dicta fugiat reiciendis voluptate! Repellendus.</p>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam assumenda excepturi recusandae eius laborum laboriosam numquam expedita mollitia enim veritatis! Debitis tempora ea explicabo libero. Officia, quia ratione! Ad, fugiat! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et debitis corporis necessitatibus fuga vero totam sunt, maiores saepe itaque architecto? Consequatur molestias dolores molestiae distinctio voluptatem iusto nemo, aut excepturi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, blanditiis, distinctio delectus ex perspiciatis, ratione provident libero asperiores numquam placeat nihil. Ullam saepe distinctio a dicta fugiat reiciendis voluptate! Repellendus.</p>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam assumenda excepturi recusandae eius laborum laboriosam numquam expedita mollitia enim veritatis! Debitis tempora ea explicabo libero. Officia, quia ratione! Ad, fugiat! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et debitis corporis necessitatibus fuga vero totam sunt, maiores saepe itaque architecto? Consequatur molestias dolores molestiae distinctio voluptatem iusto nemo, aut excepturi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, blanditiis, distinctio delectus ex perspiciatis, ratione provident libero asperiores numquam placeat nihil. Ullam saepe distinctio a dicta fugiat reiciendis voluptate! Repellendus.</p>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam assumenda excepturi recusandae eius laborum laboriosam numquam expedita mollitia enim veritatis! Debitis tempora ea explicabo libero. Officia, quia ratione! Ad, fugiat! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et debitis corporis necessitatibus fuga vero totam sunt, maiores saepe itaque architecto? Consequatur molestias dolores molestiae distinctio voluptatem iusto nemo, aut excepturi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, blanditiis, distinctio delectus ex perspiciatis, ratione provident libero asperiores numquam placeat nihil. Ullam saepe distinctio a dicta fugiat reiciendis voluptate! Repellendus.</p>
   </main>
 
@@ -41,7 +42,17 @@
     <a href="mailto:8334551will@gmail.com">8334551will@gmail.com</a>
   </footer>
 
+  <!-- three.js -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+        "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+      }
+    }
+  </script>
   <!-- <script src="https://weiyinghuang.com/....js"></script> -->
+  <script src="static/js/home/three.js" type="module"></script>
   <script src="static/js/home/app.js"></script>
   <script src="static/js/home/app.vue.js"></script>
 </body>

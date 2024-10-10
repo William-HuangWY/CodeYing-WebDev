@@ -9,6 +9,8 @@
   --bg-primary: #f3f3f3;
   --bg-secondary: #ffffff;
 
+  --content-mx-width: 1200px;
+
   --scrollbar-width: 0.25rem;
   --scrollbar-track: #c6c6c6;
   --scrollbar-track-border-radius: 4px;
@@ -19,8 +21,8 @@
   --footer-border-top-color: #cacaca;
 
   /* main */
-  --main-margin-top: 0rem;
-  --main-padding: 3.5rem;
+  --main-margin-top: var(--menubar-height);
+  --main-padding: 0rem;
   /* nav */
   --menubar-height: 4rem;
   --sidebar-wide: 5rem;

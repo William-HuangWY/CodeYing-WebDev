@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Fira+Code:wght@400;700&family=Inconsolata:wght@400;700&family=Space+Mono:wght@400;700&family=Titillium+Web:wght@400;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
 :root {
   --menubar-background-color: #582193;
@@ -14,6 +15,9 @@
   --sidebar-ul-li-a-cursor: pointer;
   --sidebar-ul-li-a-hover-color: rgb(50, 0, 166);
   --sidebar-ul-a-hover-background-color: rgb(210, 210, 210);
+
+  --hero-icon-color: rgb(109, 0, 234);
+  --hero-highlight-text-color: rgb(154, 52, 210);
 }
   
   
@@ -26,6 +30,9 @@ body.dark-mode {
 
   --sidebar-ul-li-a-hover-color: rgb(131, 3, 199);
   --sidebar-ul-a-hover-background-color: rgb(43, 43, 43);
+
+  --hero-icon-color: rgb(109, 47, 184);
+  --hero-highlight-text-color: rgb(106, 23, 145);
 }
 
 
@@ -40,6 +47,7 @@ body.dark-mode {
   top: 0;
   left: 0;
   box-shadow: var(--menubar-box-shadow);
+  z-index: 10;
 }
 .menubar-logo {
   list-style: none;
@@ -213,7 +221,7 @@ body.dark-mode {
   border-radius: 6px;
   white-space: nowrap;
   font-size: 12px;
-  z-index: 10;
+  z-index: 3;
   opacity: 0;
   pointer-events: none;
 
@@ -303,4 +311,53 @@ body.dark-mode {
     margin-bottom: auto;
     padding-TOP: 0.1rem;
   }
+}
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+}
+.hero-content {
+  position: absolute;
+  top: 120px;
+  left: 40%;
+  transform: translateX(-50%);
+  max-width: min(var(--content-mx-width), 60%);
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.hero-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.hero-icon-line-gradient {
+  width: 12px;
+  height: 400px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, var(--hero-icon-color), transparent);
+  margin-top: -4px;
+}
+.hero-text {
+  margin-left: 0.8rem;
+}
+.hero-text h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+}
+.hero-highlight-text {
+  font-weight: 800;
+  font-size: 4rem;
+  color: var(--hero-highlight-text-color);
+}
+.hero-text p {
+  margin-top: 0px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
 }
