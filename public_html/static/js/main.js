@@ -1,2 +1,2 @@
 const baseURL = 'https://weiyinghuang.com'
-const srcURL = 'https://weiyinghuang.com/static/';
+const srcURL = 'static/'; //'https://weiyinghuang.com/static/';

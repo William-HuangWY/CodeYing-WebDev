@@ -19,6 +19,7 @@
 
   /* --footer-background-color: #ebebeb; */
   --footer-border-top-color: #cacaca;
+  --footer-border-top-width: 0.1rem;
 
   /* main */
   --main-margin-top: var(--menubar-height);
@@ -39,6 +40,7 @@
 body {
   color: var(--text-primary);
   background-color: var(--bg-primary);
+  margin: 0;
   padding: 0;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -89,7 +91,7 @@ footer {
   position: relative;
   bottom: 0;
   width: 100%;
-  border-top: 0.1rem solid var(--footer-border-top-color);
+  border-top: var(--footer-border-top-width) solid var(--footer-border-top-color);
 }
 footer a {
   color: var(--text-secondary);
