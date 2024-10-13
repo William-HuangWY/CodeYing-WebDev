@@ -10,7 +10,7 @@ export function initModel(canvas, modelPath) {
 
         const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
         renderer.shadowMap.enabled = true;
 
         const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x000000, 1.5);
@@ -25,8 +25,8 @@ export function initModel(canvas, modelPath) {
         spotLight.angle = 0.12;
         spotLight.penumbra = 1;
         spotLight.castShadow = true;
-        spotLight.shadow.mapSize.width = 1024;
-        spotLight.shadow.mapSize.height = 1024;
+        spotLight.shadow.mapSize.width = 512;
+        spotLight.shadow.mapSize.height = 512;
         scene.add(spotLight);
 
         const loader = new GLTFLoader();
@@ -34,16 +34,14 @@ export function initModel(canvas, modelPath) {
             modelPath,
             (gltf) => {
                 const model = gltf.scene;
-
                 const resizeHandler = () => {
-                    let isMobile = window.matchMedia('(max-width: 800px)').matches;
-                    model.scale.set(isMobile ? 0.7 : 0.75, isMobile ? 0.7 : 0.75, isMobile ? 0.7 : 0.75);
-                    model.position.set(0, isMobile ? -3.5 : -3, isMobile ? -1.8 : -0.8);
+                    let isMobile = window.matchMedia('(max-width: 900px)').matches;
+                    model.scale.set(isMobile ? 0.6 : 0.75, isMobile ? 0.6 : 0.75, isMobile ? 0.6 : 0.75);
+                    model.position.set(0, isMobile ? -2.5 : -3, isMobile ? -1.8 : -0.8);
                     renderer.setSize(window.innerWidth, window.innerHeight);
                     camera.aspect = window.innerWidth / window.innerHeight;
                     camera.updateProjectionMatrix();
                 };
-
                 resizeHandler();
                 window.addEventListener('resize', resizeHandler);
                 model.rotation.set(-0.01, -0.2, -0.1);
@@ -52,6 +50,7 @@ export function initModel(canvas, modelPath) {
                 const controls = new OrbitControls(camera, renderer.domElement);
                 controls.enableDamping = true;
                 controls.enableZoom = false;
+                controls.enablePan = false; //
                 controls.maxPolarAngle = Math.PI / 2;
                 controls.minPolarAngle = Math.PI / 2;
 
@@ -67,12 +66,16 @@ export function initModel(canvas, modelPath) {
 }
 
 export function animateModel(renderer, scene, camera, model, controls) {
-    let animationId;
+    let animationId, isAnimating = true;
     function render() {
+        if (!isAnimating) return;
         animationId = requestAnimationFrame(render);
         controls.update();
         renderer.render(scene, camera);
     }
     render();
-    return animationId;
+    return {
+        stop: () => { isAnimating = false; cancelAnimationFrame(animationId); },
+        animationId: animationId,
+    };
 }

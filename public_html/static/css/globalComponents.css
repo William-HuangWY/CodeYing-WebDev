@@ -17,7 +17,6 @@
   --sidebar-ul-a-hover-background-color: rgb(210, 210, 210);
 
   --hero-icon-color: rgb(109, 0, 234);
-  --hero-highlight-text-color: rgb(154, 52, 210);
 }
   
   
@@ -32,7 +31,6 @@ body.dark-mode {
   --sidebar-ul-a-hover-background-color: rgb(43, 43, 43);
 
   --hero-icon-color: rgb(109, 47, 184);
-  --hero-highlight-text-color: rgb(108, 10, 153);
 }
 
 
@@ -313,6 +311,7 @@ body.dark-mode {
   }
 }
 
+
 .hero-container {
   position: relative;
   width: 100%;
@@ -323,6 +322,17 @@ body.dark-mode {
   background-position: center;
   background-repeat: no-repeat;
 }
+/* .hero-blur-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(81, 26, 137, 0.1) 1%, transparent 100%);
+  backdrop-filter: blur(4px);
+} */
 .hero-content {
   position: absolute;
   top: 80px;
@@ -359,7 +369,7 @@ body.dark-mode {
 .hero-highlight-text {
   font-weight: 800;
   font-size: 4rem;
-  color: var(--hero-highlight-text-color);
+  color: rgb(99, 19, 131);
 }
 .hero-text p {
   margin-top: 0px;
@@ -376,7 +386,7 @@ body.dark-mode {
   z-index: 0;
 }
 
-@media (max-width: 751px) {
+@media (max-width: 900px) {
   .hero-icon-line-gradient {
     height: 350px;
   }

@@ -164,9 +164,8 @@ export const sideBar = {
             }
         },
         initializeTheme() {
-            const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
             let currentTheme = localStorage.getItem('theme');
-            if (currentTheme === 'dark' || (!currentTheme && userPrefersDark)) {
+            if (!currentTheme || currentTheme === 'dark') {
                 document.body.classList.add('dark-mode');
             } else {
                 document.body.classList.remove('dark-mode');
@@ -238,25 +237,32 @@ export const heroSection = {
     data() {
         return {
             className: 'hero',
-            modelPath: `${srcURL}models/desktop-computer/scene.gltf`,
-            animationId: null,
+            modelSrc: `${srcURL}models/desktop-computer/scene.gltf`,
+            animatProxy: null,
         };
     },
     methods: {
         init() {
             const canvas = this.$refs.ModelCanvas;
-            initModel(canvas, this.modelPath).then(({ scene, camera, renderer, model, controls }) => {
+            initModel(canvas, this.modelSrc).then(({ scene, camera, renderer, model, controls }) => {
                 if (!model) console.error('*** Failed to Initialize Hero Model');
-                this.animationId = animateModel(renderer, scene, camera, model, controls);
-            }).catch(error => {
-                console.error('*** Initialization Failed:', error);
-            });
+                this.animatProxy = animateModel(renderer, scene, camera, model, controls);
+            }).catch(error => { console.error('*** Initialization Failed:', error); });
         },
         stopAnimation() {
-            if (this.animationId) {
-                cancelAnimationFrame(this.animationId);
-                this.animationId = null;
+            if (this.animatProxy) {
+                this.animatProxy.stop();
+                this.animatProxy = null;
             }
+        },
+        restartAnimation() {
+            if (!this.animatProxy) {
+                this.init()
+            }
+        },
+        toggleAnimation() {
+            if (this.animatProxy && this.animatProxy.animationId) this.stopAnimation();
+            else this.restartAnimation();
         },
     },
     mounted () {
@@ -267,6 +273,8 @@ export const heroSection = {
     },
     template: `
     <section :class="className + '-container'" :style="{ backgroundImage: backgroundImage ? 'url(' + backgroundImage + ')' : '' }">
+      <div :class="className + '-blur-overlay'"></div>
+      
       <div :class="className + '-content'">
         <div :class="className + '-icon'">
           <div :class="className + '-icon-line-gradient'"></div>
@@ -279,6 +287,8 @@ export const heroSection = {
             Engaging User Interfaces and Software Applications
           </p>
         </div>
+
+        <button @click="toggleAnimation">Toggle Animation</button> <!-- TEMP -->
       </div>
 
       <canvas ref="ModelCanvas" :class="className + '-model-canvas'"></canvas>
