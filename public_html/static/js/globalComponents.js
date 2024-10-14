@@ -244,14 +244,15 @@ export const heroSection = {
     methods: {
         init() {
             const canvas = this.$refs.ModelCanvas;
-            initModel(canvas, this.modelSrc).then(({ scene, camera, renderer, model, controls }) => {
+            initModel(canvas, this.modelSrc).then(({ scene, camera, renderer, model, controls, resizeHandler }) => {
                 if (!model) console.error('*** Failed to Initialize Hero Model');
-                this.animatProxy = animateModel(renderer, scene, camera, model, controls);
+                this.animatProxy = animateModel(renderer, scene, camera, model, controls, resizeHandler);
             }).catch(error => { console.error('*** Initialization Failed:', error); });
         },
         stopAnimation() {
             if (this.animatProxy) {
                 this.animatProxy.stop();
+                // this.animatProxy.unregisterEvents();
                 this.animatProxy = null;
             }
         },

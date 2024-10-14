@@ -41,9 +41,7 @@ export function initModel(canvas, modelPath) {
                     renderer.setSize(window.innerWidth, window.innerHeight);
                     camera.aspect = window.innerWidth / window.innerHeight;
                     camera.updateProjectionMatrix();
-                };
-                resizeHandler();
-                window.addEventListener('resize', resizeHandler);
+                }; resizeHandler();
                 model.rotation.set(-0.01, -0.2, -0.1);
                 scene.add(model);
 
@@ -54,7 +52,7 @@ export function initModel(canvas, modelPath) {
                 controls.maxPolarAngle = Math.PI / 2;
                 controls.minPolarAngle = Math.PI / 2;
 
-                resolve({ scene, camera, renderer, model, controls });
+                resolve({ scene, camera, renderer, model, controls, resizeHandler });
             },
             undefined,
             (error) => {
@@ -65,17 +63,35 @@ export function initModel(canvas, modelPath) {
     });
 }
 
-export function animateModel(renderer, scene, camera, model, controls) {
+export function animateModel(renderer, scene, camera, model, controls, resizeHandler) {
     let animationId, isAnimating = true;
+    let mouseX = 0, mouseY = 0;
     function render() {
         if (!isAnimating) return;
         animationId = requestAnimationFrame(render);
         controls.update();
+        model.rotation.y = -0.2 + mouseX * 0.15; // horizontal
+        model.rotation.z = -0.1  + mouseY * 0.2; // vertical
         renderer.render(scene, camera);
     }
+    const mouseMovementHandler = (event) => {
+        mouseX = (event.clientX - window.innerWidth / 2) / window.innerWidth
+        mouseY = (event.clientY - window.innerHeight / 2) / window.innerHeight;
+    };
+    window.addEventListener('resize', resizeHandler);
+    window.addEventListener('mousemove', mouseMovementHandler);
     render();
     return {
-        stop: () => { isAnimating = false; cancelAnimationFrame(animationId); },
+        stop: () => {
+            if (isAnimating) {
+                isAnimating = false;
+                cancelAnimationFrame(animationId);
+            }
+        },
+        unregisterEvents: () => {
+            window.removeEventListener('resize', resizeHandler);
+            window.removeEventListener('mousemove', mouseMovementHandler);
+        },
         animationId: animationId,
     };
 }
