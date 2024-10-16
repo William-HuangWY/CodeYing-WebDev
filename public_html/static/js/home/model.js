@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
-export function initModel(canvas, modelPath) {
+export function initModel(canvas, modelPath, onProgress) {
     return new Promise((resolve, reject) => {
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -54,7 +54,7 @@ export function initModel(canvas, modelPath) {
 
                 resolve({ scene, camera, renderer, model, controls, resizeHandler });
             },
-            undefined,
+            (xhr) => { if (onProgress) onProgress((xhr.loaded / xhr.total) * 100); },
             (error) => {
                 console.error('** Error Loading Model:', error);
                 reject(error);

@@ -237,6 +237,7 @@ export const heroSection = {
     data() {
         return {
             className: 'hero',
+            modelLoadingProgress: 0,
             animatProxy: null,
             animatControl: {
                 animating: false,
@@ -256,7 +257,9 @@ export const heroSection = {
         init() {
             const canvas = this.$refs.ModelCanvas;
             if (!this.modelSrc) return;
-            initModel(canvas, this.modelSrc).then(({ scene, camera, renderer, model, controls, resizeHandler }) => {
+            initModel(canvas, this.modelSrc, (progress) => {
+                this.modelLoadingProgress = Math.floor(progress);
+            }).then(({ scene, camera, renderer, model, controls, resizeHandler }) => {
                 if (!model) console.error('*** Failed to Initialize Hero Model');
                 this.animatProxy = animateModel(renderer, scene, camera, model, controls, resizeHandler);
                 this.animatControl.animating = true;
@@ -302,12 +305,17 @@ export const heroSection = {
     template: `
     <section :class="className + '-container'" :style="{ backgroundImage: backgroundImage ? 'url(' + backgroundImage + ')' : '' }">
       <div :class="className + '-blur-overlay'"></div>
+      <div v-if="modelSrc && modelLoadingProgress < 100" :class="className + '-model-progress-bar-wrapper'">
+        <div :class="className + '-model-progress-bar-container'">
+          <div :class="className + '-model-progress-bar'" :style="{ width: modelLoadingProgress + '%' }"/>
+        </div>
+        <span :class="className + '-progress-text'">{{ modelLoadingProgress }}%</span>
+      </div>
       
       <div :class="className + '-content'">
         <div :class="className + '-icon'">
           <div :class="className + '-icon-line-gradient'"></div>
         </div>
-
         <div :class="className + '-text'">
           <h1>{{ title }}&nbsp;<span :class="className + '-highlight-text'">{{ highlightTitle }}</span></h1>
           <p v-html="subTitle"/>
