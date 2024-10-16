@@ -3,6 +3,9 @@ main {
     margin-bottom: -1rem;
     color: #ececec;
 }
+footer {
+    border-top: 0.1rem solid #6b6b6b;
+}
 footer,
 footer a {
     background-color: #0b0a0a;

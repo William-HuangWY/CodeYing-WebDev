@@ -228,38 +228,65 @@ export const navBars = {
 import { initModel, animateModel } from './home/model.js';
 export const heroSection = {
     props: {
-        backgroundImage: {
-            type: String,
-            required: false,
-            default: '',
-        }
+        title: { type: String, required: true },
+        highlightTitle: { type: String, required: true },
+        subTitle: { type: String, required: true },
+        backgroundImage: { type: String, required: false, default: '' },
+        modelSrc: { type: String, required: false, default: `${srcURL}models/desktop-computer/scene.gltf` },
     },
     data() {
         return {
             className: 'hero',
-            modelSrc: `${srcURL}models/desktop-computer/scene.gltf`,
             animatProxy: null,
+            animatControl: {
+                animating: false,
+                animatingIcon: {
+                    on: 'fa-regular fa-circle-stop',
+                    off: 'fa-regular fa-circle-play',
+                },
+                following: true,
+                followingIcon: {
+                    on: 'fa-solid fa-lock',
+                    off: 'fa-solid fa-lock-open',
+                }
+            },
         };
     },
     methods: {
         init() {
             const canvas = this.$refs.ModelCanvas;
+            if (!this.modelSrc) return;
             initModel(canvas, this.modelSrc).then(({ scene, camera, renderer, model, controls, resizeHandler }) => {
                 if (!model) console.error('*** Failed to Initialize Hero Model');
                 this.animatProxy = animateModel(renderer, scene, camera, model, controls, resizeHandler);
-            }).catch(error => { console.error('*** Initialization Failed:', error); });
+                this.animatControl.animating = true;
+                this.animatControl.following = true;
+            }).catch(error => { console.error('***Hero Model Initialization Failed:', error); });
+        },
+        lockAnimation() {
+            if (this.animatProxy) this.animatProxy.lockMouseControl();
+        },
+        unlockAnimation() {
+            if (this.animatProxy) this.animatProxy.unlockMouseControl();
         },
         stopAnimation() {
             if (this.animatProxy) {
                 this.animatProxy.stop();
                 // this.animatProxy.unregisterEvents();
                 this.animatProxy = null;
+                this.animatControl.animating = false;
             }
         },
         restartAnimation() {
             if (!this.animatProxy) {
                 this.init()
             }
+        },
+        toggleAnimationFollow() {
+            if (!this.animatProxy) return;
+            if (this.animatControl.following) this.animatProxy.lockMouseControl();
+            else this.animatProxy.unlockMouseControl();
+            this.animatControl.following = !this.animatControl.following;
         },
         toggleAnimation() {
             if (this.animatProxy && this.animatProxy.animationId) this.stopAnimation();
@@ -282,14 +309,19 @@ export const heroSection = {
         </div>
 
         <div :class="className + '-text'">
-          <h1>Welcome to <span :class="className + '-highlight-text'">CodeYing</span></h1>
-          <p>
-            Building Seamless Solutions,<br/>
-            Engaging User Interfaces and Software Applications
+          <h1>{{ title }}&nbsp;<span :class="className + '-highlight-text'">{{ highlightTitle }}</span></h1>
+          <p v-html="subTitle"/>
           </p>
         </div>
+      </div>
 
-        <button @click="toggleAnimation">Toggle Animation</button> <!-- TEMP -->
+      <div v-if="modelSrc" :class="className + '-button-wrapper'">
+        <button @click="toggleAnimation" :class="className + '-animation-control-btn'">
+          <i :class="animatControl.animating ? animatControl.animatingIcon.on : animatControl.animatingIcon.off"/>
+        </button>
+        <button @click="toggleAnimationFollow" :class="className + '-animation-follow-control-btn'">
+          <i :class="animatControl.following ? animatControl.followingIcon.on : animatControl.followingIcon.off"></i>
+        </button>
       </div>
 
       <canvas ref="ModelCanvas" :class="className + '-model-canvas'"></canvas>

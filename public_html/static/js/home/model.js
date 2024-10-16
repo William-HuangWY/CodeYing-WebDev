@@ -64,14 +64,17 @@ export function initModel(canvas, modelPath) {
 }
 
 export function animateModel(renderer, scene, camera, model, controls, resizeHandler) {
-    let animationId, isAnimating = true;
+    let animationId, isAnimating = true, lockModel = false;
     let mouseX = 0, mouseY = 0;
     function render() {
         if (!isAnimating) return;
         animationId = requestAnimationFrame(render);
         controls.update();
-        model.rotation.y = -0.2 + mouseX * 0.15; // horizontal
-        model.rotation.z = -0.1  + mouseY * 0.2; // vertical
+
+        if (!lockModel) {
+            model.rotation.y = -0.2 + mouseX * 0.15; // horizontal
+            model.rotation.z = -0.1  + mouseY * 0.2; // vertical
+        }
         renderer.render(scene, camera);
     }
     const mouseMovementHandler = (event) => {
@@ -92,6 +95,8 @@ export function animateModel(renderer, scene, camera, model, controls, resizeHan
             window.removeEventListener('resize', resizeHandler);
             window.removeEventListener('mousemove', mouseMovementHandler);
         },
+        lockMouseControl: () => { lockModel = true; },
+        unlockMouseControl: () => { lockModel = false; },
         animationId: animationId,
     };
 }
