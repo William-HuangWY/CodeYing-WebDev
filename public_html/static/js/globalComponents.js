@@ -231,6 +231,8 @@ export const heroSection = {
         title: { type: String, required: true },
         highlightTitle: { type: String, required: true },
         subTitle: { type: String, required: true },
+        introTitle: { type: String, required: false, default: '' },
+        introContent : { type: String, required: false, default: '' },
         backgroundImage: { type: String, required: false, default: '' },
         modelSrc: { type: String, required: false, default: `${srcURL}models/desktop-computer/scene.gltf` },
     },
@@ -304,7 +306,7 @@ export const heroSection = {
     },
     template: `
     <section :class="className + '-container'" :style="{ backgroundImage: backgroundImage ? 'url(' + backgroundImage + ')' : '' }">
-      <div :class="className + '-blur-overlay'"></div>
+      <!-- <div :class="className + '-blur-overlay'"></div> -->
       <div v-if="modelSrc && modelLoadingProgress < 100" :class="className + '-model-progress-bar-wrapper'">
         <div :class="className + '-model-progress-bar-container'">
           <div :class="className + '-model-progress-bar'" :style="{ width: modelLoadingProgress + '%' }"/>
@@ -312,14 +314,22 @@ export const heroSection = {
         <span :class="className + '-progress-text'">{{ modelLoadingProgress }}%</span>
       </div>
       
-      <div :class="className + '-content'">
-        <div :class="className + '-icon'">
-          <div :class="className + '-icon-line-gradient'"></div>
+      <div :class="className + '-content-wrapper'">
+        <div :class="className + '-content'">
+          <div :class="className + '-icon'">
+            <div :class="className + '-icon-line-gradient'"></div>
+          </div>
+          <div :class="className + '-text'">
+            <h1>{{ title }}&nbsp;<span :class="className + '-highlight-text'">{{ highlightTitle }}</span></h1>
+            <p v-html="subTitle"/>
+            </p>
+          </div>
         </div>
-        <div :class="className + '-text'">
-          <h1>{{ title }}&nbsp;<span :class="className + '-highlight-text'">{{ highlightTitle }}</span></h1>
-          <p v-html="subTitle"/>
-          </p>
+
+        <div :class="className + '-content-secondary'">
+          <h2>{{ introTitle }}</h2>
+          <p v-html="introContent"/>
+          <button>About Me&nbsp;&nbsp;>></button>
         </div>
       </div>
 
