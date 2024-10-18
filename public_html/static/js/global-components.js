@@ -27,9 +27,6 @@ export const menuBar = {
             this.dropdownOpen = !this.dropdownOpen;
         }
     },
-    mounted() {
-
-    },
     template: `
     <nav :class="className">
       <ul :class="className + '-logo'">
@@ -206,35 +203,16 @@ export const sideBar = {
 };
 
 
-export const navBars = {
-    data() {
-        return {
-
-        };
-    },
-    methods: {
-
-    },
-    mounted () {
-
-    },
-    template: `
-    <menubar></menubar>
-    <sidebar></sidebar>
-    `,
-};
-
-
 import { initModel, animateModel } from './home/model.js';
-export const heroSection = {
+export const hero = {
     props: {
-        title: { type: String, required: true },
-        highlightTitle: { type: String, required: true },
-        subTitle: { type: String, required: true },
+        title: { type: String, required: false, default: '' },
+        highlightTitle: { type: String, required: false, default: '' },
+        subTitle: { type: String, required: false, default: '' },
         introTitle: { type: String, required: false, default: '' },
         introContent : { type: String, required: false, default: '' },
         backgroundImage: { type: String, required: false, default: '' },
-        modelSrc: { type: String, required: false, default: `${srcURL}models/desktop-computer/scene.gltf` },
+        modelSrc: { type: String, required: false, default: '' },
     },
     data() {
         return {
