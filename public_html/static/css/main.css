@@ -22,12 +22,8 @@
   --footer-border-top-width: 0.1rem;
 
   /* main */
-  --main-margin-top: var(--menubar-height);
+  --main-margin-top: 4rem;
   --main-padding: 0rem;
-  /* nav */
-  --menubar-height: 4rem;
-  --sidebar-wide: 5rem;
-  --sidebar-height: 4rem;
   /* button tooltip */
   --tooltip-background-color: #e7e7e7;
   --tooltip-text-color: #333;
@@ -35,7 +31,6 @@
 * {
   box-sizing: border-box;
 }
-
 
 body {
   color: var(--text-primary);
@@ -71,12 +66,10 @@ body::-webkit-scrollbar-thumb {
   border-radius: var(--scrollbar-thumb-border-radius);
 }
 
-
 main {
   padding: var(--main-padding);
   margin-top: var(--main-margin-top);
 }
-
 
 footer {
   font-size: 0.8rem;

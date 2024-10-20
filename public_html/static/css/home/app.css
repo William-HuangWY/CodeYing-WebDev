@@ -1,3 +1,8 @@
+/* https://weiyinghuang.com/static/css */
+@import url('../components/menubar.css');
+@import url('../components/sidebar.css');
+@import url('../components/hero.css');
+
 main {
     background-color: #070707;
     margin-bottom: -1rem;
