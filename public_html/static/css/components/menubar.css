@@ -138,8 +138,24 @@ body.dark-mode {
 }
 
 @media only screen and (max-width: 550px) {
+  :root {
+    --menubar-height: 3.5rem;
+  }
+  main {
+    margin-top: var(--menubar-height);
+  }
+  .menubar-menu {
+    gap: 0;
+  }
   .menubar-dropdown-menu {
     left: 2rem;
     width: unset;
+  }
+  .menubar-logo img {
+    width: 2.2rem;
+  }
+  .menubar-logo-text {
+    font-size: 1.6rem;
+    padding-left: 0.22rem;
   }
 }

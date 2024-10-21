@@ -164,3 +164,43 @@ body.dark-mode {
     padding-TOP: 0.1rem;
   }
 }
+
+@media only screen and (max-width: 550px) {
+  :root {
+    --sidebar-height: 3.3rem;
+  }
+  .sidebar ul{
+    padding: 0;
+    margin-top: 0.8rem;
+  }
+  .sidebar ul li {
+    padding: 0.8rem;
+  }
+  .sidebar ul li button svg{
+    width: 28px;
+    height: 28px;
+  }
+  .sidebar ul li:last-child {
+    margin-top: auto;
+    margin-right: 0.2rem;
+    margin-bottom: 10rem;
+    padding: 0rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  :root {
+    --sidebar-height: 3.1rem;
+  }
+  .sidebar ul{
+    padding: 0;
+    margin-top: 0rem;
+  }
+  .sidebar ul li {
+    margin-top: 1.3rem;
+    padding: 0.3rem;
+  }
+  .sidebar ul li:last-child {
+    margin-top: 0.8rem;
+  }
+}

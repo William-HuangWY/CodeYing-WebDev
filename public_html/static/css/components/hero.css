@@ -252,3 +252,38 @@ body.dark-mode {
     bottom: 140px;
   }
 }
+
+@media (max-width: 550px) {
+  .hero-content-wrapper {
+    margin-top: 4%;
+  }
+  .hero-text {
+    margin-top: 0.8rem;
+  }
+  .hero-icon-line-gradient {
+    height: 260px;
+  }
+  .hero-text h1 {
+    font-size: 2.4rem;
+  }
+  .hero-highlight-text {
+    font-size: 2.8rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
+  .hero-icon-line-gradient {
+    width: 10px;
+
+  }
+  .hero-button-wrapper {
+    bottom: 120px;
+    gap: 12px;
+    padding: 8px 16px;
+  }
+  .hero-animation-control-btn,
+  .hero-animation-follow-control-btn {
+    width: 20px;
+    height: 20px;
+  }
+}
