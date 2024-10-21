@@ -139,7 +139,7 @@ body.dark-mode {
 .hero-button-wrapper {
   position: absolute;
   bottom: 75px;
-  left: 50%;
+  left: 49%;
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
@@ -250,6 +250,7 @@ body.dark-mode {
 @media only screen and (max-width: 600px) {
   .hero-button-wrapper {
     bottom: 140px;
+    left: 50%;
   }
 }
 
