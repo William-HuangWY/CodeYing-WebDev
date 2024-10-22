@@ -4,6 +4,7 @@ export const tiltCard = {
     props: {
         title: { type: String, default: '' },
         icon: { type: String, default: '' },
+        content: { type: String, default: '' },
         maxTilt: { type: Number, default: 15 },
         scale: { type: Number, default: 1.05 },
         glare: { type: Boolean, default: true },
@@ -32,6 +33,7 @@ export const tiltCard = {
       <div :class="className + '-content'">
         <img :src="icon" :alt="title" v-if="icon" />
         <h3>{{ title }}</h3>
+        <p>{{ content }}</p>
       </div>
     </div>
     `,

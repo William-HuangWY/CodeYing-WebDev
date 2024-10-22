@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Scroll Triggered Fade In/Out</title>
+  <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.js"></script>
+  <style>
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .fade-enter-from, .fade-leave-to {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .fade-enter-to, .fade-leave-from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .motion-wrapper {
+      margin: 50px auto;
+      width: 300px;
+      text-align: center;
+      padding: 20px;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+    }
+    .motion-wrapper div {
+      padding: 20px;
+      background-color: #3498db;
+      color: white;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .spacer {
+      height: 2000px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="spacer"></div>
+
+    <motion-wrapper>
+      <div>Scroll Triggered Fade In/Out Content</div>
+    </motion-wrapper>
+
+    <div class="spacer"></div>
+  </div>
+
+  <script>
+    const { createApp, ref, onMounted, onBeforeUnmount } = Vue;
+
+    const MotionWrapper = {
+      template: `
+        <div class="motion-wrapper">
+          <transition name="fade">
+            <slot v-if="isVisible"></slot>
+          </transition>
+        </div>
+      `,
+      setup() {
+        const isVisible = ref(false);
+        let observer;
+
+        const handleScroll = (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              isVisible.value = true;
+            } else {
+              isVisible.value = false;
+            }
+          });
+        };
+
+        onMounted(() => {
+          observer = new IntersectionObserver(handleScroll, {
+            threshold: 0.1
+          });
+
+          const el = document.querySelector('.motion-wrapper');
+          observer.observe(el);
+        });
+
+        onBeforeUnmount(() => {
+          if (observer) {
+            observer.disconnect();
+          }
+        });
+
+        return { isVisible };
+      }
+    };
+
+    const app = createApp({
+      components: {
+        'motion-wrapper': MotionWrapper
+      }
+    });
+
+    app.mount('#app');
+  </script>
+</body>
+</html>

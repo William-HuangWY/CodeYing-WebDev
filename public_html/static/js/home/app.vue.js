@@ -20,7 +20,7 @@ app.component('navs', {
     `,
 });
 
-app.component('herosection', {
+app.component('hero-section', {
     data() {
         return {
             imagePath: `${srcURL}img/home/hero-bg.png`,
@@ -36,7 +36,64 @@ app.component('herosection', {
       :background-image="imagePath"
       :modelSrc="modelPath"
     ></hero>
-    `, // intro-content="Hi, I'm <span style='color: #9C5FCA; font-weight: bold; text-decoration: underline;'>Wei-Ying Huang (William)</span>, a passionate developer with a deep interest in technology. Through this platform, I aim to share my journey, explore new concepts, and continue growing as a developer."
+    `,
+});
+
+app.component('intro-section', {
+    props: {
+
+    },
+    data() {
+        return {
+            className: 'intro-section',
+            infomations: [
+                {
+                    title: 'Web Development',
+                    icon: `${srcURL}img/home/icons/purple-blue/networking.png`,
+                    content: 'Building responsive, dynamic, and user-centric web app using modern frameworks like Vue and React.',
+                },
+                {
+                    title: 'Game Development',
+                    icon: `${srcURL}img/home/icons/purple-blue/gamification.png`,
+                    content: 'Designing from 2D to 3D, utilizing powerful engines to bring creative ideas to life.',
+                },
+                {
+                    title: 'Data Modelling and Analytics',
+                    icon: `${srcURL}img/home/icons/purple-blue/big-data.png`,
+                    content: 'Turning raw data into actionable insights. Expertise in solving complex problems with data-driven algorithms.',
+                },
+                {
+                    title: 'Machine Learning',
+                    icon: `${srcURL}img/home/icons/purple-blue/artificial-intelligence.png`,
+                    content: 'Harnessing the power of AI to build models that learn and improve. Specializing in predictive analytics and optimize solutions.',
+                },
+              ],
+        };
+    },
+    template: `
+    <section :class="className + '-container'">
+      <div :class="className + '-content'">
+        <div :class="className + '-header'">
+          <p>introduction</p>
+          <h2>Overview</h2>
+        </div>
+
+        <p :class="className + '-description'">
+          Hi, I'm <span style='color: #9C5FCA; font-weight: bold;'>Wei-Ying Huang (William)</span>, a passionate developer with a deep interest in technology.
+          Building on a strong foundation in software development, I am currently planning to pursue a master's in Computer Science to further deepen my expertise.
+          Through this platform, I aim to share my journey, explore new concepts, and continue growing as a developer.
+        </p>
+
+        <div :class="className + '-cards-wrapper'">
+          <tilt-card v-for="(info, index) in infomations" :key="index"
+            :title="info.title"
+            :icon="info.icon"
+            :content="info.content"
+          ></tilt-card>
+        </div>
+      </div>
+    </section>
+    `,
 });
 
 app.mount('#app');

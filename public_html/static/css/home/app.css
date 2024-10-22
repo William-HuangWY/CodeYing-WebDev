@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 /* https://weiyinghuang.com/static/css */
 @import url('../components/menubar.css');
 @import url('../components/sidebar.css');
@@ -5,15 +6,66 @@
 @import url('../components/tilt-card.css');
 
 main {
-    background-color: #070707;
-    margin-bottom: -1rem;
-    color: #ececec;
+  background-color: #070707;
+  margin-bottom: -1rem;
+  color: #ececec;
 }
 footer {
-    border-top: 0.1rem solid #6b6b6b;
+  border-top: 0.1rem solid #6b6b6b;
 }
 footer,
 footer a {
-    background-color: #0b0a0a;
-    color: #b6b6b6;
+  background-color: #0b0a0a;
+  color: #b6b6b6;
+}
+
+@media (max-width: 350px) {
+  footer {
+    font-size: 0.75rem;
+  }
+}
+
+.intro-section-container {
+  position: relative;
+  width: 100%;
+  /* height: 100vh; */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.intro-section-content {
+  padding: 80px 40px;
+  max-width: min(1400px, 90%);
+  margin: 0 auto;
+  font-family: 'Poppins', sans-serif;
+}
+.intro-section-header {
+  margin-bottom: 0px;
+}
+.intro-section-header p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0px;
+}
+.intro-section-header h2 {
+  color: #fff;
+  font-size: 3.2rem;
+  font-weight: 900;
+}
+.intro-section-description {
+  padding: 20px 40px;
+  font-size: 1.2rem;
+}
+.intro-section-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 40px;
+  margin-top: 60px;
+}
+.intro-section-cards-wrapper > *:nth-child(4) {
+  margin-left: 0;
 }
