@@ -1,4 +1,5 @@
 /* https://weiyinghuang.com/static/js */
+import { motionDiv } from '../components/motion-div.vue.js'
 import { menuBar } from '../components/menubar.vue.js'
 import { sideBar } from '../components/sidebar.vue.js'
 import { hero } from '../components/hero.vue.js'
@@ -8,6 +9,7 @@ import { clap } from './app.js'
 const { ref, computed  } = Vue;
 const{ createRouter, createWebHistory} = VueRouter;
 const app = Vue.createApp({});
+app.component('motion-div', motionDiv);
 app.component('menubar', menuBar);
 app.component('sidebar', sideBar);
 app.component('hero', hero);
@@ -55,7 +57,7 @@ app.component('intro-section', {
                 {
                     title: 'Game Development',
                     icon: `${srcURL}img/home/icons/purple-blue/gamification.png`,
-                    content: 'Designing from 2D to 3D, utilizing powerful engines to bring creative ideas to life.',
+                    content: 'Designing from 2D to 3D games, utilizing powerful engines to bring creative ideas to life.',
                 },
                 {
                     title: 'Data Modelling and Analytics',
@@ -78,11 +80,13 @@ app.component('intro-section', {
           <h2>Overview</h2>
         </div>
 
-        <p :class="className + '-description'">
-          Hi, I'm <span style='color: #9C5FCA; font-weight: bold;'>Wei-Ying Huang (William)</span>, a passionate developer with a deep interest in technology.
-          Building on a strong foundation in software development, I am currently planning to pursue a master's in Computer Science to further deepen my expertise.
-          Through this platform, I aim to share my journey, explore new concepts, and continue growing as a developer.
-        </p>
+        <motion-div animation="fade-slide-up">
+          <p :class="className + '-description'">
+            Hi, I'm <span style='color: #9C5FCA; font-weight: bold;'>Wei-Ying Huang (William)</span>, a passionate developer with a deep interest in technology.
+            Building on a strong foundation in software development, I am currently planning to pursue a master's in Computer Science to further deepen my expertise.
+            Through this platform, I aim to share my journey, explore new concepts, and continue growing as a developer.
+          </p>
+        </motion-div>
 
         <div :class="className + '-cards-wrapper'">
           <tilt-card v-for="(info, index) in infomations" :key="index"

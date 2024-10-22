@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 /* https://weiyinghuang.com/static/css */
+@import url('../components/motion-div.css');
 @import url('../components/menubar.css');
 @import url('../components/sidebar.css');
 @import url('../components/hero.css');
@@ -52,6 +53,7 @@ footer a {
 }
 .intro-section-header h2 {
   color: #fff;
+  margin: 10px 0px;
   font-size: 3.2rem;
   font-weight: 900;
 }

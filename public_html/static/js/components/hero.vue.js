@@ -94,7 +94,9 @@ export const hero = {
           </div>
           <div :class="className + '-text'">
             <h1>{{ title }}&nbsp;<span :class="className + '-highlight-text'">{{ highlightTitle }}</span></h1>
-            <p v-html="subTitle"/>
+            <motion-div animation="fade-slide-up">
+              <p v-html="subTitle"/>
+            </motion-div>
             </p>
           </div>
         </div>
@@ -102,7 +104,9 @@ export const hero = {
         <div :class="className + '-content-secondary'">
           <h2>{{ introTitle }}</h2>
           <p v-html="introContent"/>
-          <button>About Me&nbsp;&nbsp;>></button>
+          <motion-div animation="fade-slide-up">
+            <button>About Me&nbsp;&nbsp;>></button>
+          </motion-div>
         </div>
       </div>
 
