@@ -4,6 +4,7 @@ import { menuBar } from '../components/menubar.vue.js'
 import { sideBar } from '../components/sidebar.vue.js'
 import { hero } from '../components/hero.vue.js'
 import { tiltCard } from '../components/tilt-card.vue.js'
+import { cubeCanvas } from '../components/cube-canvas.vue.js'
 import { clap } from './app.js'
 
 const { ref, computed  } = Vue;
@@ -14,6 +15,7 @@ app.component('menubar', menuBar);
 app.component('sidebar', sideBar);
 app.component('hero', hero);
 app.component('tilt-card', tiltCard);
+app.component('cube-canvas', cubeCanvas);
 
 app.component('navs', {
     template: `

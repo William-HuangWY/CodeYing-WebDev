@@ -1,4 +1,4 @@
-import { initModel, animateModel } from '../../models/desktop-computer/model.js';
+import { initModel, animateModel } from '../../models/desktop-computer/model.three.js';
 export const hero = {
     props: {
         title: { type: String, required: false, default: '' },
@@ -74,7 +74,7 @@ export const hero = {
     mounted () {
         if (!this.animatProxy) this.init();
     },
-    unmounted() {
+    beforeUnmount() {
         this.stopAnimation();
     },
     template: `
