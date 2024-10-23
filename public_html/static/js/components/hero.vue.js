@@ -72,7 +72,7 @@ export const hero = {
         },
     },
     mounted () {
-        this.init();
+        if (!this.animatProxy) this.init();
     },
     unmounted() {
         this.stopAnimation();
@@ -97,7 +97,9 @@ export const hero = {
             <motion-div animation="fade-slide-up">
               <p v-html="subTitle"/>
             </motion-div>
-            </p>
+            <motion-div animation="fade-slide-right">
+              <a :class="className + '-about-link'" href="#">Learn More&nbsp;&nbsp;➔</a>
+            </motion-div>
           </div>
         </div>
 

@@ -1,3 +1,10 @@
+.dummy-enter-active {
+  animation: dummyAnimation 1s ease forwards;
+}
+.dummy-leave-active {
+  animation: dummyAnimation 1s ease forwards;
+}
+
 .fade-slide-up-enter-active {
   animation: fadeSlideUpIn 1s ease forwards;
 }
@@ -5,11 +12,23 @@
   animation: fadeSlideDownOut 1s ease forwards;
 }
 
+.fade-slide-right-enter-active {
+  animation: fadeSlideRightIn 2s ease forwards;
+}
+.fade-slide-right-leave-active {
+  animation: fadeSlideLeftOut 2s ease forwards;
+}
+
 .scale-up-enter-active {
   animation: scaleUpIn 1s ease forwards;
 }
 .scale-up-leave-active {
   animation: scaleDowndOut 1s ease forwards;
+}
+
+@keyframes dummyAnimation {
+  0% {}
+  100% {}
 }
 
 @keyframes fadeSlideUpIn {
@@ -33,9 +52,30 @@
   }
 }
 
+@keyframes fadeSlideRightIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeSlideLeftOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}
+
 @keyframes scaleUpIn {
   0% {
-    transform: scale(0.5);
+    transform: scale(0.9);
     opacity: 0;
   }
   100% {
@@ -49,7 +89,7 @@
     opacity: 1;
   }
   100% {
-    transform: scale(0.5);
+    transform: scale(0.9);
     opacity: 0;
   }
 }

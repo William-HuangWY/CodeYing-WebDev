@@ -1,0 +1,93 @@
+<body>
+    <div id="app">
+      <tech-skills></tech-skills>
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.0/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
+    
+    <script>
+      const { createApp, ref, onMounted } = Vue;
+  
+      const BallCanvas = {
+        props: ['icon'],
+        template: `<canvas :ref="canvasRef" class="ball-canvas"></canvas>`,
+        setup(props) {
+          const canvasRef = ref(null);
+  
+          onMounted(() => {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.value });
+  
+            renderer.setSize(100, 100);  // 設置 canvas 大小
+            camera.position.z = 2;
+  
+            // 加入一個立方體或簡單幾何體
+            const geometry = new THREE.BoxGeometry(1, 1, 1);
+            const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+            const cube = new THREE.Mesh(geometry, material);
+            scene.add(cube);
+  
+            const animate = function () {
+              requestAnimationFrame(animate);
+              cube.rotation.x += 0.01;
+              cube.rotation.y += 0.01;
+              renderer.render(scene, camera);
+            };
+            animate();
+          });
+  
+          return { canvasRef };
+        }
+      };
+  
+      const TechSkills = {
+        components: { BallCanvas },
+        data() {
+          return {
+            technologies: [
+              { name: 'JavaScript', icon: 'path-to-js-icon' },
+              { name: 'Vue.js', icon: 'path-to-vue-icon' },
+              { name: 'Three.js', icon: 'path-to-three-icon' },
+              // 更多技術技能
+            ]
+          };
+        },
+        template: `
+          <div class="tech-skills-wrapper">
+            <div v-for="tech in technologies" :key="tech.name" class="tech-skill-item">
+              <ball-canvas :icon="tech.icon"></ball-canvas>
+              <p>{{ tech.name }}</p>
+            </div>
+          </div>
+        `
+      };
+  
+      const app = createApp({
+        components: { 'tech-skills': TechSkills }
+      });
+      app.mount('#app');
+    </script>
+  
+    <style>
+      .tech-skills-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+  
+      .tech-skill-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+  
+      .ball-canvas {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </body>
+  

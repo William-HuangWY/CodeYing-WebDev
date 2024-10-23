@@ -42,9 +42,6 @@ app.component('hero-section', {
 });
 
 app.component('intro-section', {
-    props: {
-
-    },
     data() {
         return {
             className: 'intro-section',
@@ -88,16 +85,55 @@ app.component('intro-section', {
           </p>
         </motion-div>
 
-        <div :class="className + '-cards-wrapper'">
-          <tilt-card v-for="(info, index) in infomations" :key="index"
-            :title="info.title"
-            :icon="info.icon"
-            :content="info.content"
-          ></tilt-card>
-        </div>
+        <motion-div animation="scale-up">
+          <div :class="className + '-cards-wrapper'">
+            <tilt-card v-for="(info, index) in infomations" :key="index"
+              :title="info.title"
+              :icon="info.icon"
+              :content="info.content"
+            ></tilt-card>
+          </div>
+        </motion-div>
       </div>
     </section>
     `,
 });
+
+app.component('skill-section', {
+    data() {
+      return {
+        className: 'skill-section',
+        technologies: [
+          { name: 'Python' }, // 
+          { name: 'Java' }, // 
+          { name: 'JavaScript' }, // Node, Vue, React, Three
+          { name: 'HTML5' }, // 
+          { name: 'CSS' }, // 
+          { name: 'HTML5' }, // 
+          { name: 'PHP' }, // 
+          { name: 'C' }, // 
+          { name: 'C#' }, // 
+          { name: 'C++' }, // 
+          { name: 'SQL' }, // 
+          { name: 'Git' }, // 
+          { name: 'Docker' }, // 
+          { name: 'Autodesk Inventor' }, // 
+        ]
+      };
+    },
+    mounted() {
+
+    },
+    template: `
+    <div :class="className + '-container'">
+      <div :class="className + '-content'">
+        <div v-for="(tech, index) in technologies" :key="tech.name" :class="className + '-item-wrapper'">
+          <canvas width="100" height="100"></canvas>
+          <p>{{ tech.name }}</p>
+        </div>
+      </div>
+    </div>
+    `
+  });
 
 app.mount('#app');

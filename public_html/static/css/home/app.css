@@ -68,6 +68,28 @@ footer a {
   gap: 40px;
   margin-top: 60px;
 }
-.intro-section-cards-wrapper > *:nth-child(4) {
+/* .intro-section-cards-wrapper > *:nth-child(4) {
   margin-left: 0;
+} */
+
+.skill-section-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.skill-section-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1400px;
+  padding: 120px 80px;
+  gap: 40px;
+}
+.tech-section-item-wrapper {
+  display: flex;
+  /* flex-direction: column;
+  align-items: center; */
 }

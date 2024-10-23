@@ -22,12 +22,12 @@ export const tiltCard = {
           glare: this.glare,
           "max-glare": this.maxGlare,
         });
-      },
-      unmounted() {
+    },
+    unmounted() {
         if (this.$refs.tiltCard && this.$refs.tiltCard.vanillaTilt) {
-          this.$refs.tiltCard.vanillaTilt.destroy();
+            this.$refs.tiltCard.vanillaTilt.destroy();
         }
-      },
+    },
     template: `
     <div ref="tiltCard" :class="className" data-tilt data-tilt-glare>
       <div :class="className + '-content'">
