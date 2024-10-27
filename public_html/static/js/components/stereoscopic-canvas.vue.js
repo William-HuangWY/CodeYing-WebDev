@@ -2,7 +2,7 @@ import { initScene, animateScene } from './src/stereoscopic.three.js';
 export const stereoscopicCanvas = {
     props: {
         dimension: { type: Number, required: false, default: 320 },
-        geometrySize: { type: Number, required: false, default: 3 },
+        geometrySize: { type: Number, required: false, default: 2.5 },
         texturePath: { type: String, required: false, default: '' },
         canvasWidth: { type: Number, required: false, default: 120 },
         canvasHeight: { type: Number, required: false, default: 120 },

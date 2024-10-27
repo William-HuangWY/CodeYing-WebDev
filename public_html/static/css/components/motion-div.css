@@ -5,6 +5,13 @@
   animation: dummyAnimation 1s ease forwards;
 }
 
+.fade-enter-active {
+  animation: fadeIn 1s ease forwards;
+}
+.fade-leave-active {
+  animation: fadeOut 1s ease forwards;
+}
+
 .fade-slide-up-enter-active {
   animation: fadeSlideUpIn 1s ease forwards;
 }
@@ -19,6 +26,13 @@
   animation: fadeSlideLeftOut 2s ease forwards;
 }
 
+.fade-slide-left-enter-active {
+  animation: fadeSlideLeftIn 2s ease forwards;
+}
+.fade-slide-left-leave-active {
+  animation: fadeSlideLeftOut 2s ease forwards;
+}
+
 .scale-up-enter-active {
   animation: scaleUpIn 1s ease forwards;
 }
@@ -26,9 +40,40 @@
   animation: scaleDowndOut 1s ease forwards;
 }
 
+.bounce-enter-active {
+  animation: bounceIn 0.5s ease forwards;
+}
+.bounce-leave-active {
+  animation: bounceOut 0.5s ease forwards;
+}
+
+.wave-enter-active {
+  animation: waveIn 0.5s ease forwards;
+}
+.wave-leave-active {
+  animation: waveOut 0.5s ease forwards;
+}
+
 @keyframes dummyAnimation {
   0% {}
   100% {}
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes fadeSlideUpIn {
@@ -73,9 +118,30 @@
   }
 }
 
+@keyframes fadeSlideLeftIn {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeSlideRightOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+}
+
 @keyframes scaleUpIn {
   0% {
-    transform: scale(0.9);
+    transform: scale(0.95);
     opacity: 0;
   }
   100% {
@@ -89,7 +155,73 @@
     opacity: 1;
   }
   100% {
-    transform: scale(0.9);
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes bounceIn {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+@keyframes bounceOut {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  80% {
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+@keyframes waveIn {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes waveOut {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(5px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  75% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
     opacity: 0;
   }
 }

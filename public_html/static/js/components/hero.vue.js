@@ -112,14 +112,16 @@ export const hero = {
         </div>
       </div>
 
-      <div v-if="modelSrc" :class="className + '-button-wrapper'">
-        <button @click="toggleAnimation" :class="className + '-animation-control-btn'">
-          <i :class="animatControl.animating ? animatControl.animatingIcon.on : animatControl.animatingIcon.off"/>
-        </button>
-        <button @click="toggleAnimationFollow" :class="className + '-animation-follow-control-btn'">
-          <i :class="animatControl.following ? animatControl.followingIcon.on : animatControl.followingIcon.off"></i>
-        </button>
-      </div>
+      <motion-div animation="fade">
+        <div v-if="modelSrc" :class="className + '-button-wrapper'">
+          <button @click="toggleAnimation" :class="className + '-animation-control-btn'">
+            <i :class="animatControl.animating ? animatControl.animatingIcon.on : animatControl.animatingIcon.off"/>
+          </button>
+          <button @click="toggleAnimationFollow" :class="className + '-animation-follow-control-btn'">
+            <i :class="animatControl.following ? animatControl.followingIcon.on : animatControl.followingIcon.off"></i>
+          </button>
+        </div>
+      </motion-div>
 
       <canvas ref="ModelCanvas" :class="className + '-model-canvas'"></canvas>
     </section>
