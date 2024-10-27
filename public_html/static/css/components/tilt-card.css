@@ -1,6 +1,6 @@
 .tilt-card {
   width: min(280px, 80%);
-  min-height: 320px;
+  min-height: 390px;
   padding: 1px;
   border-radius: 20px;
   display: flex;
@@ -40,6 +40,21 @@
   font-size: 0.9rem;
 }
 
+@media (max-width: 365px) {
+  .tilt-card {
+    min-height: 920px;
+  }
+}
+@media (max-width: 380px) {
+  .tilt-card {
+    min-height: 460px;
+  }
+}
+@media (max-width: 450px) {
+  .tilt-card {
+    min-height: 420px;
+  }
+}
 @media (max-width: 750px) {
   .tilt-card {
     width: min(320px, 95%);
@@ -52,21 +67,21 @@
     height: 84px;
   }
   .tilt-card-content p {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 }
 
-@media screen and (min-width: 1150px) and (max-width: 1250px) {
+@media screen and (min-width: 1150px) and (max-width: 1221px) {
   .tilt-card {
-    width: min(300px, 90%);
+    width: min(310px, 90%);
   }
   .tilt-card-content {
     padding: 40px;
   }
 }
-@media screen and (min-width: 1251px) and (max-width: 1400px) {
+@media screen and (min-width: 1221px) and (max-width: 1420px) {
   .tilt-card {
-    width: min(210px, 70%);
+    width: min(205px, 70%);
   }
   .tilt-card-content h3 {
     font-size: 1.1rem;
@@ -75,7 +90,7 @@
     font-size: 0.8rem;
   }
 }
-@media screen and (min-width: 1401px) and (max-width: 1550px) {
+@media screen and (min-width: 1421px) and (max-width: 1550px) {
   .tilt-card {
     width: min(230px, 75%);
   }

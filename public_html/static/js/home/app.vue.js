@@ -76,26 +76,22 @@ app.component('intro-section', {
       <div :class="className + '-content'">
         <div :class="className + '-header'">
           <p>introduction</p>
-          <h2>Overview</h2>
+           <h2>Overview</h2>
         </div>
 
-        <motion-div animation="fade-slide-up">
-          <p :class="className + '-description'">
-            Hi, I'm <span style='color: #9C5FCA; font-weight: bold;'>Wei-Ying Huang (William)</span>, a passionate developer with a deep interest in technology.
-            Building on a strong foundation in software development, I am currently planning to pursue a master's in Computer Science to further deepen my expertise.
-            Through this platform, I aim to share my journey, explore new concepts, and continue growing as a developer.
-          </p>
-        </motion-div>
+        <p :class="className + '-description'">
+          Hi, I'm <span style='color: #9C5FCA; font-weight: bold;'>Wei-Ying Huang (William)</span>, a passionate developer with a deep interest in technology.
+          Building on a strong foundation in software development, I am currently planning to pursue a master's in Computer Science to further deepen my expertise.
+          Through this platform, I aim to share my journey, explore new concepts, and continue growing as a developer.
+        </p>
 
-        <motion-div animation="fade">
-          <div :class="className + '-cards-wrapper'">
-            <tilt-card v-for="(info, index) in infomations" :key="index"
-              :title="info.title"
-              :icon="info.icon"
-              :content="info.content"
-            ></tilt-card>
-          </div>
-        </motion-div>
+        <div :class="className + '-cards-wrapper'">
+          <tilt-card v-for="(info, index) in infomations" :key="index"
+            :title="info.title"
+            :icon="info.icon"
+            :content="info.content"
+          ></tilt-card>
+        </div>
       </div>
     </section>
     `,

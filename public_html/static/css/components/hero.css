@@ -98,25 +98,21 @@ body.dark-mode {
 .hero-text a:hover { 
     color: #703dc2; 
 }
-.hero-text a:before{
+.hero-text a:before {
   content: '';
   background-color: #8d8990;
-  width: 97%;
+  width: 100%;
   height: 2px;
-  border-radius: 0;
   position: absolute;
-  left: 1%;
+  left: 0;
   bottom: 0px;
-  transition: all .2s cubic-bezier(.4, 0, .2, 1);
+  transition: width 0.2s ease-in-out;
 }
 .hero-text a:hover:before {
-  background-color: #925bf1;
-  width: 10px;
-  height: 10px;
-  left: 40%;
-  bottom: -8px;
-  transform: rotate(45deg);
-  content: '';
+  width: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ab7aff;
 }
 .hero-content-secondary {
   border-radius: 8px;
@@ -293,10 +289,6 @@ body.dark-mode {
   .hero-text a {
     font-size: 1.1rem;
   }
-  .hero-text a:hover:before {
-    width: 8px;
-    height: 8px;
-  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -328,10 +320,6 @@ body.dark-mode {
   }
   .hero-text a {
     font-size: 0.8rem;
-  }
-  .hero-text a:hover:before {
-    width: 6px;
-    height: 6px;
   }
   .hero-icon-line-gradient {
     width: 10px;

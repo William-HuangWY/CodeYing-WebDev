@@ -67,9 +67,6 @@ footer a {
   gap: 40px;
   margin-top: 60px;
 }
-/* .intro-section-cards-wrapper > *:nth-child(4) {
-  margin-left: 0;
-} */
 
 .skill-section-container {
   position: relative;
@@ -123,6 +120,7 @@ footer a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 160px;
 }
 .skill-section-item-wrapper p {
   margin-top: 6px;
@@ -134,6 +132,7 @@ footer a {
 }
 .skill-section-item-wrapper:hover p {
   opacity: 0;
+  visibility: hidden;
 }
 .skill-section-item-description {
   position: absolute;
@@ -142,8 +141,8 @@ footer a {
   transform: translateX(-50%) translateY(10px);
   opacity: 0;
   background-color: #220348;
-  border-radius: 4px;
-  border-bottom: 3px solid #a993cf;
+  border-radius: 8px;
+  border-bottom: 3.5px solid #aebdfc;
   padding: 10px;
   width: 330px;
   color: #e8e7e7;
@@ -163,9 +162,8 @@ footer a {
   margin-top: 0.5rem;
 }
 .skill-section-item-description-item-tag {
-  background-color: rgba(112, 85, 128, 0.2);
+  background-color: rgba(149, 119, 187, 0.4);
   color: #dfcdfc;
-  border: 1px solid #917597;
   border-radius: 5px;
   padding: 4px 6px;
   margin: 2px;
@@ -188,4 +186,47 @@ footer a {
 .skill-section-item-wrapper:not(:hover) .skill-section-item-description {
   opacity: 0;
   transform: translateX(-50%) translateY(10px);
+}
+
+@media (max-width: 1300px) {
+  .intro-section-header p,
+  .skill-section-header p {
+    font-size: 1rem;
+  }
+  .intro-section-header h2,
+  .skill-section-header h2 {
+    font-size: 3rem;
+  }
+  .intro-section-description {
+    padding: 18px 25px;
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 850px) {
+  .intro-section-header p,
+  .skill-section-header p {
+    font-size: 0.9rem;
+  }
+  .intro-section-header h2,
+  .skill-section-header h2 {
+    font-size: 2.8rem;
+  }
+  .intro-section-description {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .intro-section-header p,
+  .skill-section-header p {
+    font-size: 0.8rem;
+  }
+  .intro-section-header h2,
+  .skill-section-header h2 {
+    font-size: 2.5rem;
+  }
+  .intro-section-description {
+    padding: 5px 15px;
+    font-size: 0.85rem;
+  }
 }

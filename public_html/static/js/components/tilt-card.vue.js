@@ -33,7 +33,7 @@ export const tiltCard = {
       <div :class="className + '-content'">
         <img :src="icon" :alt="title" v-if="icon" />
         <h3>{{ title }}</h3>
-        <p>{{ content }}</p>
+        <motion-div animation="scale-up"><p>{{ content }}</p></motion-div>
       </div>
     </div>
     `,

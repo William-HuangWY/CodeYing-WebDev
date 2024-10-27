@@ -34,7 +34,7 @@
 }
 
 .scale-up-enter-active {
-  animation: scaleUpIn 1s ease forwards;
+  animation: scaleUpIn 1.5s ease forwards;
 }
 .scale-up-leave-active {
   animation: scaleDowndOut 1s ease forwards;
