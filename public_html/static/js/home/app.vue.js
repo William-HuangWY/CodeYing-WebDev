@@ -104,122 +104,134 @@ app.component('skill-section', {
     data() {
       return {
         className: 'skill-section',
-        technologies: [
+        technologies: [ // Levels: Beginner > Intermediate > Advanced > Expert > Master
             { // Python
                 name: 'Python',
                 texturePath: `${this.textureFolder}/Python-Texture.png`,
+                level: 'Expert',
                 tag: ['Data Science', 'Game Development', 'Machine Learning', 'Miscellaneous'],
                 content: [
-                    { title: 'Matplotlib', descrip: 'Library for data visualization.' },
-                    { title: 'OpenCV', descrip: 'Computer vision library for image processing.' },
-                    { title: 'Pygame', descrip: 'Library for game development.' },
-                    { title: 'PyTorch', descrip: 'Deep learning framework for dynamic computation.' },
+                    { title: 'Matplotlib', description: 'Library for data visualization.' },
+                    { title: 'OpenCV', description: 'Computer vision library for image processing.' },
+                    { title: 'PyTorch', description: 'Deep learning framework for dynamic computation.' },
+                    { title: 'Pygame', description: 'Library for game development.' },
                 ],
             },
-            { // Java
-                name: 'Java',
-                texturePath: `${this.textureFolder}/Java-Texture.png`,
-                tag: ['Object-Oriented Programming', 'Basic Syntax', 'Core Libraries'],
+            { // C++
+                name: 'C++',
+                texturePath: `${this.textureFolder}/CPP-Texture.png`,
+                level: 'Advanced',
+                tag: ['Game Development', 'Systems Design', 'IoT'],
                 content: [
-                    { title: 'Java SE', descrip: 'Standard Edition for developing general applications.' },
-                    { title: 'Basic OOP Concepts', descrip: 'Understanding classes, objects, inheritance, and polymorphism.' },
-                    { title: 'Java Collections', descrip: 'Utilizing collections framework for data manipulation.' }
+                    { title: 'Unreal Engine', description: 'Game engine using C++ for game development.' },
+                    { title: 'Arduino', description: 'Platform using simplified C++ for prototyping embedded systems and IoT applications.' },
+                    { title: 'SystemC', description: 'C++ library for system-level modeling and simulation in hardware design.' },
+                    { title: 'STL', description: 'Core C++ library for algorithms, containers, and iterators.' },
                 ],
             },
             { // JavaScript
                 name: 'JavaScript',
                 texturePath: `${this.textureFolder}/JavaScript-Texture.png`,
+                level: 'Advanced',
                 tag: ['Web Development', 'Front-End Development', 'React', 'VueJs', 'ThreeJs', 'NodeJs'],
                 content: [
-                    { title: 'jQuery', descrip: 'Library for simplifying DOM manipulation.' },
-                    { title: 'React', descrip: 'Library for building user interfaces.' },
-                    { title: 'Node.js', descrip: 'Runtime for executing JavaScript server-side.' },
+                    { title: 'jQuery', description: 'Library for simplifying DOM manipulation.' },
+                    { title: 'React', description: 'Library for building user interfaces.' },
+                    { title: 'Vue.js', description: 'Progressive framework for building user interfaces.' },
+                    { title: 'Node.js', description: 'Runtime for executing JavaScript server-side.' },
                 ]
             },
             { // HTML5
                 name: 'HTML5',
                 texturePath: `${this.textureFolder}/HTML5-Texture.png`,
+                level: 'Advanced',
                 tag: ['Web Development', 'Front-End Development'],
                 content: [
-                    { title: 'Canvas', descrip: 'Element for drawing graphics via JavaScript.' },
-                    { title: 'Web APIs', descrip: 'APIs for web applications like local storage and geolocation.' }
+                    { title: 'Canvas', description: 'Element for drawing graphics via JavaScript.' },
+                    { title: 'Web APIs', description: 'APIs for web applications like local storage and geolocation.' },
                 ],
             },
             { // CSS
                 name: 'CSS',
                 texturePath: `${this.textureFolder}/CSS-Texture.png`,
+                level: 'Advanced',
                 tag: ['Web Design', 'Styling'],
                 content: [
-                    { title: 'Flexbox', descrip: 'Layout model for responsive designs.' },
-                    { title: 'Grid', descrip: 'CSS layout system for complex layouts.' }
+                    { title: 'Flexbox', description: 'Layout model for responsive designs.' },
+                    { title: 'Grid', description: 'CSS layout system for complex layouts.' },
                 ],
             },
             { // PHP
                 name: 'PHP',
                 texturePath: `${this.textureFolder}/PHP-Texture.png`,
+                level: 'Intermediate',
                 tag: ['Web Development', 'Back-End Development', 'Laravel'],
                 content: [
-                    { title: 'Laravel', descrip: 'Popular PHP framework for web applications.' },
-                    { title: 'Symfony', descrip: 'Framework for building robust applications.' }
+                    { title: 'Laravel', description: 'Popular PHP framework for web applications.' },
+                    { title: 'Symfony', description: 'Framework for building robust applications.' },
                 ],
             },
             { // C
                 name: 'C',
                 texturePath: `${this.textureFolder}/C-Texture.png`,
+                level: 'Intermediate',
                 tag: ['Systems Programming', 'Embedded Systems'],
                 content: [
-                    { title: 'Embedded Systems', descrip: 'Programming for microcontrollers and hardware.' }
+                    { title: 'Embedded Systems', description: 'Programming for microcontrollers and hardware.' },
                 ]
-            },
-            { // C++
-                name: 'C++',
-                texturePath: `${this.textureFolder}/CPP-Texture.png`,
-                tag: ['Game Development', 'Systems Design'],
-                content: [
-                    { title: 'Unreal Engine', descrip: 'Game engine using C++ for game development.' },
-                    { title: 'Qt', descrip: 'Framework for building cross-platform applications.' }
-                ],
             },
             { // Csharp
                 name: 'Csharp',
                 texturePath: `${this.textureFolder}/CS-Texture.png`,
+                level: 'Intermediate',
                 tag: ['Game Development'],
                 content: [
-                    { title: 'Unity', descrip: 'Popular game engine for creating 2D and 3D games.' }
+                    { title: 'Unity', description: 'Popular game engine for creating 2D and 3D games.' },
+                ],
+            },
+            { // Java
+                name: 'Java',
+                texturePath: `${this.textureFolder}/Java-Texture.png`,
+                level: 'Intermediate',
+                tag: ['Object-Oriented Programming', 'Basic Syntax', 'Core Libraries'],
+                content: [
+                    { title: 'Java SE', description: 'Standard Edition for developing general applications.' },
+                    { title: 'Basic OOP Concepts', description: 'Understanding classes, objects, inheritance, and polymorphism.' },
+                    { title: 'Java Collections', description: 'Utilizing collections framework for data manipulation.' },
                 ],
             },
             { // MySQL
                 name: 'MySQL',
                 texturePath: `${this.textureFolder}/MySQL-Texture.png`,
+                level: 'Advanced',
                 tag: ['Database Management', 'SQL'],
                 content: [
-                    { title: 'Relational Database', descrip: 'Structured data storage with SQL support.' }
+                    { title: 'Relational Database', description: 'Structured data storage with SQL support.' },
                 ]
             },
             { // Git
                 name: 'Git',
                 texturePath: `${this.textureFolder}/Git-Texture.png`,
-                tag: ['Version Control', 'Collaboration', 'GitHub'],
+                level: 'Advanced',
+                tag: ['CI/CD', 'Collaboration', 'GitHub'],
                 content: [
-                    { title: 'GitHub', descrip: 'Platform for hosting Git repositories and collaboration.' },
-                    { title: 'GitLab', descrip: 'DevOps lifecycle tool that provides a Git repository manager.' }
+                    { title: 'GitHub', description: 'Platform for hosting Git repositories and collaboration.' },
+                    { title: 'GitLab', description: 'DevOps lifecycle tool that provides a Git repository manager.' },
                 ]
             },
             { // Docker
                 name: 'Docker',
                 texturePath: `${this.textureFolder}/Docker-Texture.png`,
-                tag: ['Containerization', 'DevOps'],
+                level: 'Advanced',
+                tag: ['CI/CD', 'Containerization', 'DevOps'],
                 content: [
-                    { title: 'Docker Compose', descrip: 'Tool for defining and running multi-container Docker applications.' },
-                    { title: 'Kubernetes', descrip: 'Orchestrator for managing containerized applications.' }
+                    { title: 'Docker Compose', description: 'Tool for defining and running multi-container Docker applications.' },
+                    { title: 'Kubernetes', description: 'Orchestrator for managing containerized applications.' },
                 ],
             },
             // { name: 'Autodesk Inventor' }, // 
         ]
       };
-    },
-    mounted() {
-
     },
     template: `
     <div :class="className + '-container'">
@@ -233,11 +245,18 @@ app.component('skill-section', {
           <div v-for="(tech, index) in technologies" :key="tech.name" :class="className + '-item-wrapper'">
             <stereoscopic-canvas :dimension="380" :texture-path="tech.texturePath"></stereoscopic-canvas>
             <motion-div animation="wave"><p>{{ tech.name }}</p></motion-div>
+
             <span :class="className + '-item-description'">
-              <h3>{{ tech.name }}</h3>
+              <h3>{{ tech.name }}&nbsp;&nbsp;<span>({{ tech.level }})<span></h3>
               <div :class="className + '-item-description-tag-wrapper'">
                 <span v-for="(tag, index) in tech.tag" :key="index" :class="className + '-item-description-item-tag'">{{ tag }}</span>
               </div>
+              <ul v-if="tech.content.length" :class="className + '-item-description-list'">
+                <li v-for="(contentItem, contentIndex) in tech.content" :key="contentIndex">
+                  <span :class="className + '-item-description-list-subtitle'">{{ contentItem.title }}</span><br/>
+                  <span :class="className + '-item-description-list-subcontent'">{{ contentItem.description }}</span>
+                </li>
+              </ul>
             </span>
           </div>
         </div>

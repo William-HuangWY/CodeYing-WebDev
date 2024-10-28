@@ -77,7 +77,7 @@ footer a {
   align-items: center;
 }
 .skill-section-content {
-  padding: 160px 40px;
+  padding: 160px 40px 240px 40px;
   max-width: min(1400px, 90%);
   margin: 0 auto;
   font-family: 'Poppins', sans-serif;
@@ -140,20 +140,36 @@ footer a {
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   opacity: 0;
-  background-color: #220348;
+  background-color: rgb(37, 27, 77);
   border-radius: 8px;
-  border-bottom: 3.5px solid #aebdfc;
+  border-bottom: 4px solid #bab6ee;
   padding: 10px;
   width: 330px;
   color: #e8e7e7;
   font-size: 1rem;
+  will-change: opacity, transform;
   transition: opacity 0.4s ease, transform 0.4s ease;
   pointer-events: none;
   z-index: 1;
 }
+.skill-section-item-description::before {
+  content: '';
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid rgb(37, 27, 77);
+}
 .skill-section-item-description h3 {
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
+}
+.skill-section-item-description h3 span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #d1c5db;
 }
 .skill-section-item-description-tag-wrapper {
   display: flex;
@@ -169,19 +185,41 @@ footer a {
   margin: 2px;
   font-size: 0.8rem;
 }
-.skill-section-item-description::before {
+.skill-section-item-description-list {
+  padding-left: 20px;
+  list-style-type: none;
+  position: relative;
+}
+.skill-section-item-description-list li {
+  position: relative;
+  list-style:none;
+  padding-left: 4px;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+.skill-section-item-description-list li::after {
   content: '';
   position: absolute;
-  top: -11px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-bottom: 12px solid #220348;
+  top: 6px;
+  left: -16px;
+  width: 2px;
+  height: calc(100% - 20px);
+  border-radius: 1px;
+  background-color: #7e8bcc;
+}
+.skill-section-item-description-list-subtitle {
+  text-decoration: underline;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.skill-section-item-description-list-subcontent {
+  font-size: 1rem;
+  color: #d1d1d1;
 }
 .skill-section-item-wrapper:hover .skill-section-item-description {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
 }
 .skill-section-item-wrapper:not(:hover) .skill-section-item-description {
   opacity: 0;
