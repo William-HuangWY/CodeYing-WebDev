@@ -1,0 +1,150 @@
+@property --card-glowing-border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.glow-card-container1,
+.glow-card-container2,
+.glow-card-container3,
+.glow-card-container4 {
+  border-radius: 1.75rem;
+  border: 1px solid rgba(125, 119, 187, 0.3);
+  transition: transform 0.3s;
+  margin-left: 10px;
+  position: relative;
+  z-index: 0;
+  --glow-card-animation-cycle: 3.5s;
+}
+.glow-card-container1::before,
+.glow-card-container2::before,
+.glow-card-container3::before,
+.glow-card-container4::before {
+  filter: blur(1.5rem);
+  opacity: 0.8;
+}
+.glow-card-container1:hover,
+.glow-card-container2:hover,
+.glow-card-container3:hover,
+.glow-card-container4:hover {
+    transform: scale(1.05);
+}
+
+.glow-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 1.75rem;
+  background: linear-gradient(90deg, rgb(5, 0, 15) 0%, rgb(8, 1, 19) 100%);
+}
+.glow-card-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.glow-card-info h3 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin: 10px 0;
+}
+.glow-card-info p {
+  color: #dfdfdf;
+  text-align: center;
+}
+
+
+.glow-card-container1::after,
+.glow-card-container1::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  padding: 2.5px;
+  translate: -50% -50%;
+  background: conic-gradient(from var(--card-glowing-border-angle), transparent 85%, rgb(99, 5, 215), rgb(101, 4, 237), rgb(74, 4, 237), rgb(43, 4, 237));
+  border-radius: 1.75rem;
+  z-index: -1;
+  animation: var(--glow-card-animation-cycle) spin1 linear infinite;
+}
+.glow-card-container2::after,
+.glow-card-container2::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  padding: 2.5px;
+  translate: -50% -50%;
+  background: conic-gradient(from var(--card-glowing-border-angle), transparent 85%, rgb(99, 5, 215), rgb(101, 4, 237), rgb(74, 4, 237), rgb(43, 4, 237));
+  border-radius: 1.75rem;
+  z-index: -1;
+  animation: var(--glow-card-animation-cycle) spin2 linear infinite;
+}
+.glow-card-container3::after,
+.glow-card-container3::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  padding: 2.5px;
+  translate: -50% -50%;
+  background: conic-gradient(from var(--card-glowing-border-angle), transparent 85%, rgb(99, 5, 215), rgb(101, 4, 237), rgb(74, 4, 237), rgb(43, 4, 237));
+  border-radius: 1.75rem;
+  z-index: -1;
+  animation: var(--glow-card-animation-cycle) spin3 linear infinite;
+}
+.glow-card-container4::after,
+.glow-card-container4::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  padding: 2.5px;
+  translate: -50% -50%;
+  background: conic-gradient(from var(--card-glowing-border-angle), transparent 85%, rgb(99, 5, 215), rgb(101, 4, 237), rgb(74, 4, 237), rgb(43, 4, 237));
+  border-radius: 1.75rem;
+  z-index: -1;
+  animation: var(--glow-card-animation-cycle) spin4 linear infinite;
+}
+
+
+@keyframes spin1 {
+  from {
+    --card-glowing-border-angle: 0deg;
+  }
+  to {
+    --card-glowing-border-angle: 360deg;
+  }
+}
+@keyframes spin2 {
+  from {
+    --card-glowing-border-angle: 45deg;
+  }
+  to {
+    --card-glowing-border-angle: 405deg;
+  }
+}
+@keyframes spin3 {
+  from {
+    --card-glowing-border-angle: 90deg;
+  }
+  to {
+    --card-glowing-border-angle: 450deg;
+  }
+}
+@keyframes spin4 {
+  from {
+    --card-glowing-border-angle: 135deg;
+  }
+  to {
+    --card-glowing-border-angle: 495deg;
+  }
+}

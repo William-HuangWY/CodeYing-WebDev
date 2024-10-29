@@ -5,7 +5,11 @@
 @import url('../components/sidebar.css');
 @import url('../components/hero.css');
 @import url('../components/tilt-card.css');
+@import url('../components/glow-card.css');
 
+:root {
+  --max-section-width: 1500px;
+}
 main {
   background-color: #070707;
   margin-bottom: -1rem;
@@ -36,7 +40,7 @@ footer a {
 }
 .intro-section-content {
   padding: 160px 40px;
-  max-width: min(1400px, 90%);
+  max-width: min(var(--max-section-width), 90%);
   margin: 0 auto;
   font-family: 'Poppins', sans-serif;
 }
@@ -78,7 +82,7 @@ footer a {
 }
 .skill-section-content {
   padding: 160px 40px 240px 40px;
-  max-width: min(1400px, 90%);
+  max-width: min(var(--max-section-width), 90%);
   margin: 0 auto;
   font-family: 'Poppins', sans-serif;
 }
@@ -100,7 +104,7 @@ footer a {
   flex-wrap: wrap;
   justify-content: center;
   position: relative;
-  max-width: 1400px;
+  max-width: var(--max-section-width);
   margin: 100px 0;
   padding: 0px 40px;
   padding-bottom: 80px;
@@ -196,6 +200,8 @@ footer a {
   padding-left: 4px;
   padding-bottom: 8px;
   margin-bottom: 10px;
+  opacity: 0;
+  animation-fill-mode: forwards;
 }
 .skill-section-item-description-list li::after {
   content: '';
@@ -216,6 +222,12 @@ footer a {
   font-size: 1rem;
   color: #d1d1d1;
 }
+.skill-section-item-wrapper:hover .skill-section-item-description-list li {
+  animation: fadeSlideDownIn 0.4s ease forwards;
+}
+.skill-section-item-wrapper:not(:hover) .skill-section-item-description-list li {
+  animation: fadeSlideUpOut 0.4s ease forwards;
+}
 .skill-section-item-wrapper:hover .skill-section-item-description {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
@@ -226,13 +238,60 @@ footer a {
   transform: translateX(-50%) translateY(10px);
 }
 
+.experience-section-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.experience-section-content {
+  padding: 10px 0px 200px 0px;
+  max-width: min(var(--max-section-width), 90%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+.experience-section-header {
+  width: min(var(--max-section-width), 80vw);
+  padding: 20px 10px;
+}
+.experience-section-header p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1px;
+  margin: 0px;
+}
+.experience-section-header h2 {
+  color: #fff;
+  margin: 6px 0px;
+  text-align: center;
+  font-size: 3.4rem;
+  font-weight: 900;
+}
+.experience-section-cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(600px, 70vw), 1fr));
+  max-width: min(var(--max-section-width), 90%);
+  row-gap: 40px;
+  column-gap: 80px;
+  margin-top: 60px;
+}
+
 @media (max-width: 1300px) {
   .intro-section-header p,
-  .skill-section-header p {
+  .skill-section-header p,
+  .experience-section-header p {
     font-size: 1rem;
   }
   .intro-section-header h2,
-  .skill-section-header h2 {
+  .skill-section-header h2,
+  .experience-section-header h2 {
     font-size: 3rem;
   }
   .intro-section-description {
@@ -242,11 +301,13 @@ footer a {
 }
 @media (max-width: 850px) {
   .intro-section-header p,
-  .skill-section-header p {
+  .skill-section-header p,
+  .experience-section-header p {
     font-size: 0.9rem;
   }
   .intro-section-header h2,
-  .skill-section-header h2 {
+  .skill-section-header h2,
+  .experience-section-header h2 {
     font-size: 2.8rem;
   }
   .intro-section-description {
@@ -254,17 +315,57 @@ footer a {
     font-size: 1rem;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 625px) {
   .intro-section-header p,
-  .skill-section-header p {
+  .skill-section-header p
+  .experience-section-header p {
     font-size: 0.8rem;
   }
   .intro-section-header h2,
-  .skill-section-header h2 {
+  .skill-section-header h2,
+  .experience-section-header h2 {
     font-size: 2.5rem;
   }
   .intro-section-description {
     padding: 5px 15px;
     font-size: 0.85rem;
+  }
+  .experience-section-header {
+    padding: 10px 0;
+    margin: 0;
+  }
+  .experience-section-header h2 {
+    margin: 0;
+  }
+}
+@media (max-width: 600px) {
+  .experience-section-header h2 {
+    font-size: 2.4rem;
+  }
+}
+@media (max-width: 490px) {
+  .experience-section-header h2 {
+    font-size: 1.65rem;
+  }
+}
+
+@keyframes fadeSlideDownIn { 
+  0% {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px); 
+  }
+}
+@keyframes fadeSlideUpOut { 
+  0% {
+    opacity: 1;
+    transform: translateY(0px); 
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px); 
   }
 }

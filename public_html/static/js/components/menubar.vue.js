@@ -14,7 +14,7 @@ export const menuBar = {
         },
         menuItems: [
             { text: 'About', href: '#' },
-            { text: 'Portfolio', href: '#' },
+            // { text: 'Portfolio', href: '#' },
             { text: 'Blog', href: '#' },
             { text: 'Contact', href: '#' },
             { text: 'Search', href: '#', icon: 'fas fa-search' } // last-child

@@ -4,6 +4,7 @@ import { menuBar } from '../components/menubar.vue.js'
 import { sideBar } from '../components/sidebar.vue.js'
 import { hero } from '../components/hero.vue.js'
 import { tiltCard } from '../components/tilt-card.vue.js'
+import { glowCard } from '../components/glow-card.vue.js'
 import { stereoscopicCanvas } from '../components/stereoscopic-canvas.vue.js'
 import { clap } from './app.js'
 
@@ -15,6 +16,7 @@ app.component('menubar', menuBar);
 app.component('sidebar', sideBar);
 app.component('hero', hero);
 app.component('tilt-card', tiltCard);
+app.component('glow-card', glowCard);
 app.component('stereoscopic-canvas', stereoscopicCanvas);
 
 app.component('navs', {
@@ -263,6 +265,58 @@ app.component('skill-section', {
       </div>
     </div>
     `
+});
+
+app.component('experience-section', {
+    data() {
+        return {
+            className: 'experience-section',
+            experiences: [
+              {
+                title: 'Software Application Intern',
+                icon: `${srcURL}img/home/icons/exprience/programmer.png`,
+                content: '...',
+              },
+              {
+                title: 'Computer Science Student',
+                icon: `${srcURL}img/home/icons/exprience/database.png`,
+                content: '...',
+              },
+              {
+                title: 'APCS Test Prep Instructor',
+                icon: `${srcURL}img/home/icons/exprience/consulting.png`,
+                content: '...',
+              },
+              {
+                title: 'High School Math Tutor',
+                icon: `${srcURL}img/home/icons/exprience/case-study.png`,
+                content: '...',
+              },
+            ],
+        };
+    },
+    template: `
+    <section :class="className + '-container'">
+      <div :class="className + '-content'">
+        <div :class="className + '-header'">
+          <p>See where I have been</p>
+          <h2>Relevant&nbsp;&nbsp;Experience</h2>
+        </div>
+
+        <div :class="className + '-cards-wrapper'">
+          <glow-card 
+            v-for="(card, index) in experiences" 
+            :key="index" 
+            :title="card.title" 
+            :icon="card.icon" 
+            :alt="card.title" 
+            :content="card.content"
+            :animation-identifier="index % 4 + 1"
+          />
+        </div>
+      </div>
+    </section>
+    `,
 });
 
 app.mount('#app');
