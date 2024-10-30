@@ -9,7 +9,7 @@ import { stereoscopicCanvas } from '../components/stereoscopic-canvas.vue.js'
 import { clap } from './app.js'
 
 const { ref, computed  } = Vue;
-const{ createRouter, createWebHistory} = VueRouter;
+const{ createRouter, createWebHistory, createWebHashHistory} = VueRouter;
 const app = Vue.createApp({});
 app.component('motion-div', motionDiv);
 app.component('menubar', menuBar);
@@ -38,7 +38,7 @@ app.component('hero-section', {
       title="Welcome to"
       highlight-title="CodeYing"
       sub-title="Building Seamless Solutions<br/>Engaging User Interfaces and Software Applications"
-      intro-title="Know Me More"
+      intro-title="Know About Me"
       :background-image="imagePath"
       :modelSrc="modelPath"
     ></hero>
@@ -319,4 +319,41 @@ app.component('experience-section', {
     `,
 });
 
+
+const homePage = {
+    template: `
+      <hero-section></hero-section>
+      <intro-section></intro-section>
+      <skill-section></skill-section>
+      <experience-section></experience-section>
+    `,
+};
+
+const blogPage = {
+    template: `
+    <div>
+      <h2>This is Blog Page</h2>
+    </div>
+    `,
+};
+
+const contactPage = {
+  template: `
+    <div>
+      <h2>This is Contact Page</h2>
+    </div>
+  `,
+};
+
+const routes = [
+    { path: '/', component: homePage },
+    { path: '/blog', component: blogPage },
+    { path: '/contact', component: contactPage }
+];
+const router = createRouter({
+    history: createWebHashHistory(),
+    routes: routes,
+});
+
+app.use(router);
 app.mount('#app');

@@ -97,6 +97,7 @@ export function animateModel(renderer, scene, camera, model, controls, resizeHan
         },
         lockMouseControl: () => { lockModel = true; },
         unlockMouseControl: () => { lockModel = false; },
+        renderer: renderer,
         animationId: animationId,
     };
 }

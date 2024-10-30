@@ -75,7 +75,13 @@ export const hero = {
         if (!this.animatProxy) this.init();
     },
     beforeUnmount() {
+      if (this.animatProxy) {
+        this.animatProxy.renderer.dispose();
+        this.animatProxy.unregisterEvents();
         this.stopAnimation();
+        this.animatProxy = null;
+        this.animatControl.animating = false;
+      }
     },
     template: `
     <section :class="className + '-container'" :style="{ backgroundImage: backgroundImage ? 'url(' + backgroundImage + ')' : '' }">
@@ -107,7 +113,7 @@ export const hero = {
           <h2>{{ introTitle }}</h2>
           <p v-html="introContent"/>
           <motion-div animation="fade-slide-up">
-            <button>About Me&nbsp;&nbsp;>></button>
+            <button>Learn More&nbsp;&nbsp;>></button>
           </motion-div>
         </div>
       </div>

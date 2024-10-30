@@ -103,6 +103,7 @@ export function animateScene(renderer, scene, camera, geometry, controls, amplit
 
     return {
         stop: () => { if (isAnimating) isAnimating = false; },
+        renderer: renderer,
         animationId: animationId,
     };
 }

@@ -4,7 +4,7 @@ Welcome to the **CodeYing-DevRepo**! This repository is a collection of scripts,
 
 ## About
 
-This project aims to provide a space for me to organize and share various website scripts, tools, and resources. My final website will be hosted at **[weiyinghuang.com](https://weiyinghuang.com)**, and I encourage friends and collaborators to explore the repository.
+This project aims to provide a space to organize and share various website scripts, tools, and resources. My final website will be hosted at **[weiyinghuang.com](https://weiyinghuang.com)**, and I encourage friends and collaborators to explore the repository.
 
 ## Repository Structure
 

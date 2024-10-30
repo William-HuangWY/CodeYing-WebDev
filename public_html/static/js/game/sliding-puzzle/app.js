@@ -1,5 +1,5 @@
 const { createApp, ref, computed  } = Vue;
-const{ createRouter, createWebHistory} = VueRouter;
+const{ createRouter, createWebHistory, createWebHashHistory} = VueRouter;
 
 // Components
 
@@ -262,7 +262,7 @@ const routes = [
   { path: '/game', component: SliderPuzzleGame }
 ];
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: routes,
 });
 
@@ -273,4 +273,3 @@ app.component('puzzlemenu', PuzzleMenu);
 app.component('sliderpuzzle', SliderPuzzleGame);
 app.use(router);
 app.mount('#app');
-router.push('/');

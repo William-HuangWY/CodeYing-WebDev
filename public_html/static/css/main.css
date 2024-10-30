@@ -42,8 +42,8 @@ body {
 body.dark-mode {
   --text-primary: #ececec;
   --text-secondary: #b6b6b6;
-  --bg-primary: #23232e;
-  --bg-secondary: #141418;
+  --bg-primary: #100e13;
+  --bg-secondary: #18181d;
 
   --scrollbar-track: #49494b;
   --scrollbar-thumb: rgb(124, 121, 121);

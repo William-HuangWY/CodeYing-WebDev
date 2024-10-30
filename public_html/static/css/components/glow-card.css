@@ -14,14 +14,15 @@
   margin-left: 10px;
   position: relative;
   z-index: 0;
-  --glow-card-animation-cycle: 3.5s;
+  --glow-card-border-hidden-portion: 60%;
+  --glow-card-animation-cycle: 8s;
 }
 .glow-card-container1::before,
 .glow-card-container2::before,
 .glow-card-container3::before,
 .glow-card-container4::before {
-  filter: blur(1.5rem);
-  opacity: 0.8;
+  filter: blur(1.1rem);
+  opacity: 0.7;
 }
 .glow-card-container1:hover,
 .glow-card-container2:hover,
@@ -64,7 +65,7 @@
   height: 100%;
   padding: 2.5px;
   translate: -50% -50%;
-  background: conic-gradient(from var(--card-glowing-border-angle), transparent 85%, rgb(99, 5, 215), rgb(101, 4, 237), rgb(74, 4, 237), rgb(43, 4, 237));
+  background: conic-gradient(from var(--card-glowing-border-angle), transparent var(--glow-card-border-hidden-portion), rgb(99, 5, 215), rgb(101, 4, 237), rgb(74, 4, 237), rgb(43, 4, 237));
   border-radius: 1.75rem;
   z-index: -1;
   animation: var(--glow-card-animation-cycle) spin1 linear infinite;
@@ -79,7 +80,7 @@
   height: 100%;
   padding: 2.5px;
   translate: -50% -50%;
-  background: conic-gradient(from var(--card-glowing-border-angle), transparent 85%, rgb(99, 5, 215), rgb(101, 4, 237), rgb(74, 4, 237), rgb(43, 4, 237));
+  background: conic-gradient(from var(--card-glowing-border-angle), transparent var(--glow-card-border-hidden-portion), rgb(99, 5, 215), rgb(101, 4, 237), rgb(74, 4, 237), rgb(43, 4, 237));
   border-radius: 1.75rem;
   z-index: -1;
   animation: var(--glow-card-animation-cycle) spin2 linear infinite;
@@ -94,7 +95,7 @@
   height: 100%;
   padding: 2.5px;
   translate: -50% -50%;
-  background: conic-gradient(from var(--card-glowing-border-angle), transparent 85%, rgb(99, 5, 215), rgb(101, 4, 237), rgb(74, 4, 237), rgb(43, 4, 237));
+  background: conic-gradient(from var(--card-glowing-border-angle), transparent var(--glow-card-border-hidden-portion), rgb(99, 5, 215), rgb(101, 4, 237), rgb(74, 4, 237), rgb(43, 4, 237));
   border-radius: 1.75rem;
   z-index: -1;
   animation: var(--glow-card-animation-cycle) spin3 linear infinite;
@@ -109,7 +110,7 @@
   height: 100%;
   padding: 2.5px;
   translate: -50% -50%;
-  background: conic-gradient(from var(--card-glowing-border-angle), transparent 85%, rgb(99, 5, 215), rgb(101, 4, 237), rgb(74, 4, 237), rgb(43, 4, 237));
+  background: conic-gradient(from var(--card-glowing-border-angle), transparent var(--glow-card-border-hidden-portion), rgb(99, 5, 215), rgb(101, 4, 237), rgb(74, 4, 237), rgb(43, 4, 237));
   border-radius: 1.75rem;
   z-index: -1;
   animation: var(--glow-card-animation-cycle) spin4 linear infinite;

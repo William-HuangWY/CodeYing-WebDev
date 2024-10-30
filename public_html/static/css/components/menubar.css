@@ -68,7 +68,7 @@ body.dark-mode {
   display: flex;
   align-items: center;
   cursor: var(--menubar-li-cursor);
-  padding: 1.5rem;
+  padding: 1.9rem 2rem 1.9rem 1.9rem;
   margin-top: 0.25rem;
   transition: color 0.3s ease;
   text-decoration: none;
@@ -118,6 +118,7 @@ body.dark-mode {
   display: block;
   width: 100%;
   padding: 0.5rem 0;
+  cursor: var(--menubar-li-cursor);
   text-align: center;
   border-radius: 5px;
 }

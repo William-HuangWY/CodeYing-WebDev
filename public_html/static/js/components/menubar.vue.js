@@ -13,11 +13,11 @@ export const menuBar = {
             closeIcon: 'fa-solid fa-xmark',
         },
         menuItems: [
-            { text: 'About', href: '#' },
+            { text: 'Home', link: '/' },
             // { text: 'Portfolio', href: '#' },
-            { text: 'Blog', href: '#' },
-            { text: 'Contact', href: '#' },
-            { text: 'Search', href: '#', icon: 'fas fa-search' } // last-child
+            { text: 'Blog', link: '/blog' },
+            { text: 'Contact', link: '/contact' },
+            { text: 'Search', link: '#', icon: 'fas fa-search' } // last-child
         ],
         dropdownOpen: false,
       };
@@ -25,6 +25,21 @@ export const menuBar = {
     methods: {
         toggleDropdown() {
             this.dropdownOpen = !this.dropdownOpen;
+        },
+        navigateTo(navigation) {
+            if (navigation.startsWith('#')) {
+                const elementId = navigation.slice(1);
+                const targetElement = document.getElementById(elementId);
+                if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+            else if (navigation.startsWith('/')) {
+                this.$router.push(navigation).catch(err => {
+                    if (err.name !== 'NavigationDuplicated') console.error(err);
+                });
+            }
+            else {
+                window.location.href = navigation;
+            }
         }
     },
     template: `
@@ -40,7 +55,7 @@ export const menuBar = {
 
       <ul :class="className + '-menu'">
         <li v-for="(item, index) in menuItems" :key="index">
-          <a :href="item.href">
+          <a @click="navigateTo(item.link)">
             <i v-if="item.icon" :class="item.icon"></i> 
             <span v-if="!item.icon">{{ item.text }}</span>
           </a>
@@ -53,7 +68,7 @@ export const menuBar = {
 
       <div :class="className + '-dropdown-menu'" :class="{ open: dropdownOpen }">
         <li v-for="(item, index) in menuItems.slice(0, menuItems.length - 1)" :key="index">
-          <a :href="item.href">{{ item.text }}</a>
+          <a @click="navigateTo(item.link)">{{ item.text }}</a>
         </li>
       </div>
     </nav>
