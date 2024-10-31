@@ -1,17 +1,19 @@
 /* https://weiyinghuang.com/static/js */
 import { motionDiv } from '../components/motion-div.vue.js'
+import { navigator } from '../components/navigator.vue.js'
 import { menuBar } from '../components/menubar.vue.js'
 import { sideBar } from '../components/sidebar.vue.js'
 import { hero } from '../components/hero.vue.js'
 import { tiltCard } from '../components/tilt-card.vue.js'
 import { glowCard } from '../components/glow-card.vue.js'
 import { stereoscopicCanvas } from '../components/stereoscopic-canvas.vue.js'
-import { clap } from './app.js'
+import { clap, scrollToSection } from './app.js'
 
 const { ref, computed  } = Vue;
 const{ createRouter, createWebHistory, createWebHashHistory} = VueRouter;
 const app = Vue.createApp({});
 app.component('motion-div', motionDiv);
+app.component('navigator', navigator);
 app.component('menubar', menuBar);
 app.component('sidebar', sideBar);
 app.component('hero', hero);
@@ -29,19 +31,29 @@ app.component('navs', {
 app.component('hero-section', {
     data() {
         return {
+            className: 'hero-section',
             imagePath: `${srcURL}img/home/hero-bg.png`,
             modelPath: `${srcURL}models/desktop-computer/scene.gltf`,
         };
     },
+    methods: { scrollToSection },
     template: `
-    <hero
-      title="Welcome to"
-      highlight-title="CodeYing"
-      sub-title="Building Seamless Solutions<br/>Engaging User Interfaces and Software Applications"
-      intro-title="Know About Me"
-      :background-image="imagePath"
-      :modelSrc="modelPath"
-    ></hero>
+    <section :class="className + '-container'">
+      <navigator
+        :sections="['hero', 'intro', 'skills', 'experience']"
+        :nav-function="scrollToSection"
+      ></navigator>
+      <hero
+        title="Welcome to"
+        highlight-title="CodeYing"
+        sub-title="Building Seamless Solutions<br/>Engaging User Interfaces and Software Applications"
+        intro-title="Know About Me"
+        :background-image="imagePath"
+        :link-id="'intro'"
+        :link-function="scrollToSection"
+        :modelSrc="modelPath"
+      ></hero>
+    </section>
     `,
 });
 
@@ -232,7 +244,7 @@ app.component('skill-section', {
                 ],
             },
             // { name: 'Autodesk Inventor' }, // 
-        ]
+        ],
       };
     },
     template: `
@@ -318,9 +330,7 @@ app.component('experience-section', {
         };
     },
     methods: {
-        openFile(src) {
-            window.open(src, '_blank');
-        }
+        openFile(src) { window.open(src, '_blank'); }
     },
     template: `
     <section :class="className + '-container'">
@@ -360,10 +370,10 @@ app.component('experience-section', {
 
 const homePage = {
     template: `
-      <hero-section></hero-section>
-      <intro-section></intro-section>
-      <skill-section></skill-section>
-      <experience-section></experience-section>
+      <hero-section id="hero"></hero-section>
+      <intro-section id="intro"></intro-section>
+      <skill-section id="skills"></skill-section>
+      <experience-section id="experience"></experience-section>
     `,
 };
 

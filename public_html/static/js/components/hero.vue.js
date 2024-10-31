@@ -7,6 +7,8 @@ export const hero = {
         introTitle: { type: String, required: false, default: '' },
         introContent : { type: String, required: false, default: '' },
         backgroundImage: { type: String, required: false, default: '' },
+        linkId: { type: String, required: false, default: '' },
+        linkFunction: { type: Function, required: false, default: () => {} },
         modelSrc: { type: String, required: false, default: '' },
     },
     data() {
@@ -105,7 +107,7 @@ export const hero = {
               <p v-html="subTitle"/>
             </motion-div>
             <motion-div animation="fade-slide-right">
-              <a :class="className + '-about-link'" href="#">Learn More&nbsp;&nbsp;➔</a>
+              <a :class="className + '-about-link'" @click="() => linkFunction(linkId)">Learn More&nbsp;&nbsp;➔</a>
             </motion-div>
           </div>
         </div>
@@ -114,7 +116,7 @@ export const hero = {
           <h2>{{ introTitle }}</h2>
           <p v-html="introContent"/>
           <motion-div animation="fade-slide-up">
-            <button>Learn More&nbsp;&nbsp;>></button>
+            <button @click="() => linkFunction(linkId)">Learn More&nbsp;&nbsp;>></button>
           </motion-div>
         </div>
       </div>
