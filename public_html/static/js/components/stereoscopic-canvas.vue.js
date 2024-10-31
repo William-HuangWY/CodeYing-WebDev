@@ -25,9 +25,11 @@ export const stereoscopicCanvas = {
     },
     beforeUnmount() {
         if (this.animation) {
-            this.animation.renderer.dispose();
             this.animation.stop();
-            this.animatProxy = null;
+            this.animation.renderer.dispose();
+            this.animationId && cancelAnimationFrame(this.animation.animationId);
+            this.animation.renderer.forceContextLoss();
+            this.animation = null;
         }
     },
     template: `

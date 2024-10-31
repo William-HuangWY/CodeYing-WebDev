@@ -14,7 +14,7 @@ export const sideBar = {
             },
             links: [
                 { // GitHub
-                    href: '#',
+                    href: 'https://github.com/William-HuangWY',
                     svg: {
                         xmlns: 'http://www.w3.org/2000/svg',
                         viewBox: '0 0 24 24', width: "48", height: "32",
@@ -26,7 +26,7 @@ export const sideBar = {
                     text: 'GitHub',
                 },
                 { // LinkedIn
-                    href: '#',
+                    href: 'https://www.linkedin.com/in/%E5%A8%81%E7%A9%8E-%E9%BB%83-1286a531b/',
                     svg: {
                         xmlns: 'http://www.w3.org/2000/svg',
                         viewBox: '0 0 16 16', width: "48", height: "32",
@@ -38,7 +38,7 @@ export const sideBar = {
                     text: 'LinkedIn',
                 },
                 { // Discord
-                    href: '#',
+                    href: 'https://discord.gg/agJxUD2K',
                     svg: {
                         xmlns: 'http://www.w3.org/2000/svg',
                         viewBox: '0 0 16 16', width: "48", height: "32",
@@ -50,7 +50,7 @@ export const sideBar = {
                     text: 'Discord',
                 },
                 { // HackMD
-                    href: '#',
+                    href: 'https://hackmd.io/@William8334551',
                     svg: {
                         xmlns: 'http://www.w3.org/2000/svg',
                         viewBox: '0 0 16 16', width: "48", height: "32",
@@ -63,7 +63,7 @@ export const sideBar = {
                     text: 'HackMD',
                 },
                 { // Email
-                    href: '#',
+                    href: 'mailto:codeying@weiyinghuang.com',
                     svg: {
                         xmlns: 'http://www.w3.org/2000/svg',
                         viewBox: '0 0 16 16', width: "48", height: "32",
@@ -119,7 +119,7 @@ export const sideBar = {
         </li>
         
         <li v-for="(link, index) in links" :key="index">
-          <a :href="link.href">
+          <a :href="link.href" target="_blank">
           <svg :xmlns="link.svg.xmlns" :viewBox="link.svg.viewBox" :width="link.svg.width" :height="link.svg.height" :fill="link.svg.fill" :class="link.svg.class">
               <path v-for="(path, pIndex) in link.svg.pathd" :key="pIndex" :d="path"/>
           </svg>

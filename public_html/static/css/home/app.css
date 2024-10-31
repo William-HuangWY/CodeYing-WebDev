@@ -20,7 +20,7 @@ footer {
 }
 footer,
 footer a {
-  background-color: #0b0a0a;
+  background-color: #101010;
   color: #b6b6b6;
 }
 
@@ -368,4 +368,29 @@ footer a {
     opacity: 0;
     transform: translateY(20px); 
   }
+}
+
+.blog-page-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.contact-page-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

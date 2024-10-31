@@ -75,13 +75,14 @@ export const hero = {
         if (!this.animatProxy) this.init();
     },
     beforeUnmount() {
-      if (this.animatProxy) {
-        this.animatProxy.renderer.dispose();
-        this.animatProxy.unregisterEvents();
-        this.stopAnimation();
-        this.animatProxy = null;
-        this.animatControl.animating = false;
-      }
+        if (this.animatProxy) {
+            this.animatProxy.renderer.dispose();
+            this.animatProxy.renderer.forceContextLoss();
+            this.animatProxy.unregisterEvents();
+            this.stopAnimation();
+            this.animatProxy = null;
+            this.animatControl.animating = false;
+        }
     },
     template: `
     <section :class="className + '-container'" :style="{ backgroundImage: backgroundImage ? 'url(' + backgroundImage + ')' : '' }">

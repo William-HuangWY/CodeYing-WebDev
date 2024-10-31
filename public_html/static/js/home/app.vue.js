@@ -299,7 +299,7 @@ app.component('experience-section', {
     <section :class="className + '-container'">
       <div :class="className + '-content'">
         <div :class="className + '-header'">
-          <p>See where I have been</p>
+          <p>See My Career Journey</p>
           <h2>Relevant&nbsp;&nbsp;Experience</h2>
         </div>
 
@@ -330,19 +330,29 @@ const homePage = {
 };
 
 const blogPage = {
+    data() {
+        return {
+            className: 'blog-page',
+        };
+    },
     template: `
-    <div>
+    <div :class="className + '-container'">
       <h2>This is Blog Page</h2>
     </div>
     `,
 };
 
 const contactPage = {
-  template: `
-    <div>
-      <h2>This is Contact Page</h2>
-    </div>
-  `,
+    data() {
+        return {
+            className: 'contact-page',
+        };
+    },
+    template: `
+      <div :class="className + '-container'">
+        <h2>This is Contact Page</h2>
+      </div>
+    `,
 };
 
 const routes = [
