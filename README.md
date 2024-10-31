@@ -3,13 +3,14 @@
 Welcome to the **CodeYing-DevRepo**! This repository is a collection of scripts, digital files, and resources related to my personal web development, starting up my personal brand **[CodeYing \<Y/>](https://weiyinghuang.com)**.
 
 ## About
+Mainly use **VueJS** and **ThreeJS** (CDN) to create this dynamic, visually engaging, and interactive user experience.
 
 This project aims to provide a space to organize and share various website scripts, tools, and resources. My final website will be hosted at **[weiyinghuang.com](https://weiyinghuang.com)**, and I encourage friends and collaborators to explore the repository.
 
 ## Repository Structure
 
 - **/public_html**: Contains website scripts and utilities.
-- ...
+- **/public_html/static**: Contains javascript, css, image, 3d model resource.
 <!-- - **/assets**: Includes images, stylesheets, and other digital assets.
 - **/docs**: Documentation and notes related to the development process. -->
 
@@ -19,7 +20,7 @@ If you have suggestions or contributions, please open an issue or a pull request
 
 ## Contact
 
-If you have any questions or feedback, you can reach me at [8334551will@gmail.com](mailto:8334551will@gmail.com) or [...@weiyinghuang.com](mailto:).
+If you have any questions or feedback, you can reach me at [8334551will@gmail.com](mailto:8334551will@gmail.com) or [codeying@weiyinghuang.com](mailto:codeying@weiyinghuang.com).
 
 ## License
 Todo.
