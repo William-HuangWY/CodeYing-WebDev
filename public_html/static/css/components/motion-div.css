@@ -54,6 +54,23 @@
   animation: waveOut 0.5s ease forwards;
 }
 
+.typing-enter-active {
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: fit-content;
+  position: relative;
+  animation: typingIn 2s steps(26, end) forwards, 5s forwards;
+}
+.typing-enter-active::after {
+  content: '|';
+  position: relative;
+  display: inline-block;
+  animation: blink 0.9s step-end infinite;
+}
+.typing-leave-active {
+  animation: typingOut 1s ease forwards;
+}
+
 @keyframes dummyAnimation {
   0% {}
   100% {}
@@ -224,4 +241,16 @@
     transform: translateY(0);
     opacity: 0;
   }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+@keyframes typingIn {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes typingOut {
+  from { width: 100%; }
+  to { width: 0; }
 }

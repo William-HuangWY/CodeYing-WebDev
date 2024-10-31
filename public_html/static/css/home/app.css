@@ -248,7 +248,7 @@ footer a {
 }
 .experience-section-content {
   padding: 10px 0px 200px 0px;
-  max-width: min(var(--max-section-width), 90%);
+  max-width: min(calc(var(--max-section-width) + 100px), 90%);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -274,9 +274,52 @@ footer a {
   font-size: 3.4rem;
   font-weight: 900;
 }
+.experience-section-download-button {
+  background-color: rgb(18, 15, 23);
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 1px 15px;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: 'Source Code Pro', monospace;
+  cursor: pointer;
+  border: 2px solid #6b6b6ba8;
+  outline: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+.experience-section-download-button:hover {
+  transform: scale(1.025);
+}
+.experience-section-download-button img {
+  width: 50px;
+  height: auto;
+  margin: 8px 18px;
+  margin-left: 8px;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: #612893;
+}
+.experience-section-download-button span {
+  position: absolute;
+  border-radius: 40px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: #272727;
+  transition: height 0.3s ease;
+  z-index: -1;
+}
+.experience-section-download-button:hover span {
+  height: 100%;
+}
 .experience-section-cards-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(600px, 70vw), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(630px, 70vw), 1fr));
   max-width: min(var(--max-section-width), 90%);
   row-gap: 40px;
   column-gap: 80px;
@@ -298,6 +341,17 @@ footer a {
     padding: 18px 25px;
     font-size: 1.1rem;
   }
+  .experience-section-download-button {
+    padding: 1px 14px;
+    font-size: 1.25rem;
+  }
+  .experience-section-download-button img {
+    width: 46px;
+    height: auto;
+    margin: 6px 18px;
+    margin-left: 6px;
+    padding: 8px;
+  }
 }
 @media (max-width: 850px) {
   .intro-section-header p,
@@ -313,6 +367,16 @@ footer a {
   .intro-section-description {
     padding: 10px 20px;
     font-size: 1rem;
+  }
+  .experience-section-download-button {
+    padding: 1px 12px;
+    font-size: 1.15rem;
+  }
+  .experience-section-download-button img {
+    width: 42px;
+    height: auto;
+    margin: 6px 16px;
+    margin-left: 6px;
   }
 }
 @media (max-width: 625px) {
@@ -337,6 +401,16 @@ footer a {
   .experience-section-header h2 {
     margin: 0;
   }
+  .experience-section-download-button {
+    padding: 1px 10px;
+    font-size: 1.1rem;
+  }
+  .experience-section-download-button img {
+    width: 40px;
+    height: auto;
+    margin: 5px 16px;
+    margin-left: 6px;
+  }
 }
 @media (max-width: 600px) {
   .experience-section-header h2 {
@@ -346,6 +420,16 @@ footer a {
 @media (max-width: 490px) {
   .experience-section-header h2 {
     font-size: 1.65rem;
+  }
+  .experience-section-download-button {
+    padding: 1px 4px;
+    font-size: 0.9rem;
+  }
+  .experience-section-download-button img {
+    width: 36px;
+    height: auto;
+    margin: 6px 10px;
+    margin-left: 6px;
   }
 }
 

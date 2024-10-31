@@ -271,29 +271,56 @@ app.component('experience-section', {
     data() {
         return {
             className: 'experience-section',
+            downloadIconSrc: `${srcURL}img/home/icons/white/cloud-download.png`,
+            downloadFileSrc: `${srcURL}files/home/resume.pdf`,
             experiences: [
-              {
+              { // Software Application Intern
                 title: 'Software Application Intern',
                 icon: `${srcURL}img/home/icons/exprience/programmer.png`,
-                content: '...',
+                content: 'Contributed to process optimization and reinforcement learning applications. Developed intelligent image recognition for wafer testing and auto online data analysis.',
+                detail: {
+                    period: { start: 'Jan. 2023', end: 'Dec. 2023' },
+                    organization: { name: 'NXP Semiconductors', url: 'https://www.nxp.com/' },
+                    location: { city: 'Kaohsiung, TW.', map: 'https://maps.app.goo.gl/wq3Zo1vTfQdAb62i9' }
+                },
               },
-              {
+              { // Computer Science Student
                 title: 'Computer Science Student',
                 icon: `${srcURL}img/home/icons/exprience/database.png`,
-                content: '...',
+                content: 'Specialized in AI and Machine Learning. Completed a senior project on deep reinforcement learning in financial markets, increasing trading returns using LSTM for advanced analysis.',
+                detail: {
+                    period: { start: 'Sep. 2020', end: 'Jun. 2024' },
+                    organization: { name: 'NSYSU', url: 'https://www.nsysu.edu.tw/' },
+                    location: { city: 'Kaohsiung, TW.', map: 'https://maps.app.goo.gl/bp1ku3nkEJKXud639' }
+                },
               },
-              {
+              { // APCS Test Prep Instructor
                 title: 'APCS Test Prep Instructor',
                 icon: `${srcURL}img/home/icons/exprience/consulting.png`,
-                content: '...',
+                content: 'Instructed students in C, C++, and Python for AP Computer Science, focusing on core CS concepts, data structures, and algorithms to improve problem-solving skills and exam readiness.',
+                detail: {
+                    period: { start: 'July. 2024', end: 'Present' },
+                    organization: { name: 'Jason Tutoring Institute', url: 'https://www.facebook.com/jsonfirst' },
+                    location: { city: 'Kaohsiung, TW.', map: 'https://maps.app.goo.gl/tpfgysAySEW2EUDXA' }
+                },
               },
-              {
+              { // High School Math Tutor
                 title: 'High School Math Tutor',
                 icon: `${srcURL}img/home/icons/exprience/case-study.png`,
-                content: '...',
+                content: 'Provided dadicated math tutoring, emphasizing critical thinking and problem-solving for high school students, fostering a deeper understanding of key mathematical concepts.',
+                detail: {
+                    period: { start: 'Sep. 2020', end: 'Dec. 2021' },
+                    organization: { name: 'Jason Seniors', url: 'https://www.jason520.com.tw/' },
+                    location: { city: 'Kaohsiung, TW.', map: 'https://maps.app.goo.gl/Mk8gdQUgP3Jigh32A' }
+                },
               },
             ],
         };
+    },
+    methods: {
+        openFile(src) {
+            window.open(src, '_blank');
+        }
     },
     template: `
     <section :class="className + '-container'">
@@ -301,6 +328,16 @@ app.component('experience-section', {
         <div :class="className + '-header'">
           <p>See My Career Journey</p>
           <h2>Relevant&nbsp;&nbsp;Experience</h2>
+        </div>
+
+        <div :class="className + '-button-wrapper'">
+          <button :class="className + '-download-button'" @click="openFile(downloadFileSrc)">
+            <img :src="downloadIconSrc" alt="Download Icon"/>
+            <motion-div animation="typing">
+                <div style="margin-right: 8px;">Download Full Resume</div>
+            </motion-div>
+            <span></span>
+          </button>
         </div>
 
         <div :class="className + '-cards-wrapper'">
@@ -311,6 +348,7 @@ app.component('experience-section', {
             :icon="card.icon" 
             :alt="card.title" 
             :content="card.content"
+            :detail="card.detail"
             :animation-identifier="index % 4 + 1"
           />
         </div>
