@@ -7,7 +7,7 @@ import { hero } from '../components/hero.vue.js'
 import { tiltCard } from '../components/tilt-card.vue.js'
 import { glowCard } from '../components/glow-card.vue.js'
 import { stereoscopicCanvas } from '../components/stereoscopic-canvas.vue.js'
-import { clap, scrollToSection } from './app.js'
+import { clap, scrollToSection, sendByEmailJS } from './app.js'
 
 const { ref, computed  } = Vue;
 const{ createRouter, createWebHistory, createWebHashHistory} = VueRouter;
@@ -389,7 +389,7 @@ app.component('project-section', {
                     tags: [
                         { name: 'Vue.JS', path: `${srcURL}img/home/project/tech/VueJS-${this.iconTheme}.svg` },
                         { name: 'THREE', path: `${srcURL}img/home/project/tech/ThreeJS-${this.iconTheme}.svg` },
-                        { name: 'CSS', path: `${srcURL}img/home/project/tech/CSS-${this.iconTheme}.svg` },
+                        { name: 'EmailJS', path: `${srcURL}img/home/project/tech/EmailJS.svg` },
                     ],
                     href: 'https://github.com/William-HuangWY/CodeYing-WebDev'
                 },
@@ -496,7 +496,7 @@ app.component('project-section', {
             </div>
           </div>
 
-          <div :class="className + '-exhibit-card'" :style="{ backgroundImage: contentCardBg ? 'url(' + contentCardBg + ')' : '' }">
+          <div :class="className + '-exhibit-card'">
             <div :class="className + '-exhibit-card-img-wrapper'">
               <img :src="currentProject.imageSrc" alt="project-image"/>
             </div>
@@ -524,9 +524,37 @@ const blogPage = {
             className: 'blog-page',
         };
     },
+    methods: {
+        notifyMe() {
+            if (this.email) {
+                const name = "Blog Page Notify Click";
+                const message = `(${this.email} need to be notified when the blog is ready)`;
+                sendByEmailJS(name, this.email, message);
+                alert(`You will be notified at ${this.email} when the blog is ready!`);
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        },
+    },
     template: `
     <div :class="className + '-container'">
-      <h2>(Blog Page)</h2>
+      <div :class="className + '-content'">
+        <h2 :class="className + '-title'">Coming Soon</h2>
+        <p :class="className + '-subtitle'">Articles, projects, and tutorials are coming to CodeYing! Stay connected!</p>
+        <div :class="className + '-notify-wrapper'">
+          <input 
+            v-model="email" 
+            type="email" 
+            id="email" 
+            name="email" 
+            :class="className + '-input'" 
+            placeholder="Enter your email" 
+            autocomplete="email"
+          />
+          <button :class="className + '-notify-btn'" @click="notifyMe">Notify Me</button>
+        </div>
+        <p :class="className + '-notify-note'">- Notify me when blog is ready -</p>
+      </div>
     </div>
     `,
 };

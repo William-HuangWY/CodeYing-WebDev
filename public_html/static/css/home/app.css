@@ -347,9 +347,9 @@ footer a {
 .project-section-header {
   position: relative;
   width: min(calc(var(--max-section-width) - 200px), 80vw);
-  border: 2px solid rgba(210, 186, 233, 0.25);
+  /* border: 2px solid rgba(219, 212, 226, 0.01); */
   border-radius: 8px;
-  background-color: rgba(18, 12, 20, 0.4);
+  background-color: rgba(9, 9, 9, 0.1);
   padding: 20px 10px;
   overflow: hidden;
 }
@@ -361,12 +361,12 @@ footer a {
   transform: translate(-50%, -50%);
   width: 100%;
   height: 80%;
-  background: radial-gradient(circle, rgba(71, 62, 128, 0.1), transparent 70%);
+  background: radial-gradient(circle, rgba(219, 213, 255, 0.01), transparent 70%);
   filter: blur(30px);
   pointer-events: none;
 }
 .project-section-header p {
-  color: #7f788e;
+  color: #8a88a2;
   font-size: 1.1rem;
   text-transform: uppercase;
   text-align: center;
@@ -391,8 +391,8 @@ footer a {
 .project-section-content-card,
 .project-section-exhibit-card {
   padding: 1rem;
-  border: 2px solid rgba(210, 186, 233, 0.25);
-  background-color: rgba(18, 12, 20, 0.4);
+  border: 2px solid rgba(219, 212, 226, 0.04);
+  background-color: rgba(9, 8, 10, 0.4);
   border-radius: 8px;
   position: relative;
   display: flex;
@@ -409,7 +409,7 @@ footer a {
   backdrop-filter: blur(40px);
   width: fit-content;
   border-radius: 8px;
-  background-color: rgba(56, 27, 92, 0.2);
+  background-color: rgba(89, 74, 123, 0.2);
 }
 .project-section-content-card-logo img {
   width: 64px;
@@ -485,7 +485,7 @@ footer a {
   padding: 10px 4px;
 }
 .project-section-content-card-navigation button {
-  background-color: rgba(174, 132, 232, 0.1);
+  background-color: rgba(110, 94, 125, 0.1);
   border: none;
   cursor: pointer;
   padding: 0;
@@ -509,7 +509,7 @@ footer a {
 }
 
 .project-section-exhibit-card {
-  padding: 30px 50px;
+  padding: 0;
 }
 .project-section-exhibit-card-img-wrapper {
   width: 100%;
@@ -517,7 +517,7 @@ footer a {
   padding: 20px;
   border-radius: 6px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
 }
 .project-section-exhibit-card-img-wrapper img {
   width: 100%;
@@ -673,9 +673,6 @@ footer a {
     width: 13px;
     height: 13px;
   }
-  .project-section-exhibit-card {
-    padding: 20px 30px;
-  }
   .project-section-exhibit-card-img-wrapper {
     padding: 16px;
   }
@@ -752,9 +749,6 @@ footer a {
     width: 12px;
     height: 12px;
   }
-  .project-section-exhibit-card {
-    padding: 10px 16px;
-  }
   .project-section-exhibit-card-img-wrapper {
     padding: 12px;
   }
@@ -792,7 +786,67 @@ footer a {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+.blog-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: min(var(--max-section-width), 90%);
+  padding: 50px 20px;
+  margin-top: -15%;
+  font-family: 'Poppins', sans-serif;
+}
+.blog-page-title {
+  font-size: 6rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #7f00ff, #4c00ff);
+  color: transparent;
+  margin-bottom: 1rem;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.blog-page-subtitle {
+  font-size: 1.1rem;
+  max-width: min(950px, 80%);
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+.blog-page-notify-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.blog-page-input {
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #7b00ff;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  width: 250px;
+}
+.blog-page-notify-btn {
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #7b00ff;
+  border-radius: 0 5px 5px 0;
+  border: 1px solid #7b00ff;
+  cursor: pointer;
+  font-weight: 550;
+  transition: background-color 0.3s;
+}
+.blog-page-notify-btn:hover {
+  background-color: #8a24fd;
+}
+.blog-page-notify-note {
+  font-size: 0.85rem;
+  color: #848484;
+}
+
 .contact-page-container {
   position: relative;
   width: 100%;
