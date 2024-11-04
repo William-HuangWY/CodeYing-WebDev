@@ -563,14 +563,84 @@ const contactPage = {
     data() {
         return {
             className: 'contact-page',
+            avatarSrc: `${srcURL}img/global/avatar/CodeYing-Avatar.svg`,
+            subject: '',
+            fullName: '',
+            email: '',
+            message: ''
         };
     },
+    methods: {
+        sendMessage() {
+            if (this.subject && this.fullName && this.email && this.message) {
+                const name = this.fullName;
+                const from = this.email;
+                const msg = `
+                    Subject: ${this.subject}
+                    Message: ${this.message}
+                `;
+                sendByEmailJS(name, from, msg);
+                alert(`Message send from ${this.email}!`);
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+    },
     template: `
-      <div :class="className + '-container'">
-        <h2>(Contact Page)</h2>
+    <div :class="className + '-container'">
+      <div :class="className + '-content'">
+        <div class="contact-page-header">
+          <img :src="avatarSrc" alt="Avatar" class="contact-page-avatar" />
+          <h2>Let's Contact!</h2>
+        </div>
+        <input 
+          v-model="subject" 
+          type="text" 
+          :class="className + '-input'" 
+          placeholder="Subject"
+          id="subject"
+          name="subject"
+          autocomplete="subject"
+        />
+        <div style="display: flex; justify-content: space-between;">
+          <input 
+            v-model="fullName" 
+            type="text" 
+            :class="className + '-input'" 
+            placeholder="Full Name"
+            id="fullName"
+            name="fullName"
+            style="flex: 1; margin-right: 10px;"
+          />
+          <input 
+            v-model="email" 
+            type="email" 
+            :class="className + '-input'" 
+            placeholder="Email Address"
+            id="email"
+            name="email"
+            autocomplete="email"
+            style="flex: 1; margin-left: 10px;"
+          />
+        </div>
+        <textarea 
+          v-model="message" 
+          :class="className + '-textarea'" 
+          placeholder="Your Message"
+          id="message"
+          name="message"
+        ></textarea>
+        <button 
+          :class="className + '-send-btn'" 
+          @click="sendMessage"
+        >
+          Send Message
+        </button>
       </div>
+    </div>
     `,
 };
+
 
 const routes = [
     { path: '/', component: homePage },
