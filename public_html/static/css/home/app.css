@@ -327,15 +327,223 @@ footer a {
   margin-top: 60px;
 }
 
+.project-section-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.project-section-content {
+  padding: 50px 0px 200px 0px;
+  max-width: min(var(--max-section-width), 90%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+.project-section-header {
+  position: relative;
+  width: min(calc(var(--max-section-width) - 200px), 80vw);
+  border: 2px solid rgba(210, 186, 233, 0.25);
+  border-radius: 8px;
+  background-color: rgba(18, 12, 20, 0.4);
+  padding: 20px 10px;
+  overflow: hidden;
+}
+.project-section-header::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(71, 62, 128, 0.1), transparent 70%);
+  filter: blur(30px);
+  pointer-events: none;
+}
+.project-section-header p {
+  color: #7f788e;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1px;
+  margin: 0px;
+}
+.project-section-header h2 {
+  color: #fff;
+  margin: 6px 0px;
+  text-align: center;
+  font-size: 3.4rem;
+  font-weight: 900;
+}
+.project-section-grid-wrapper {
+  display: grid;
+  padding: 30px 0px;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: min(calc(var(--max-section-width) - 200px), 80vw);
+  height: 100%;
+}
+.project-section-content-card,
+.project-section-exhibit-card {
+  padding: 1rem;
+  border: 2px solid rgba(210, 186, 233, 0.25);
+  background-color: rgba(18, 12, 20, 0.4);
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.project-section-content-card-logo {
+  padding: 8px;
+  padding-bottom: 6px;
+  margin: 0;
+  backdrop-filter: blur(40px);
+  width: fit-content;
+  border-radius: 8px;
+  background-color: rgba(56, 27, 92, 0.2);
+}
+.project-section-content-card-logo img {
+  width: 64px;
+  height: 64px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+}
+.project-section-content-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+}
+.project-section-content-card-text-title {
+  color: #ffffff;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0;
+  margin-top: 2.4rem;
+}
+.project-section-content-card-text-desc,
+.project-section-content-card-text-subdesc {
+  padding: 0px 4px;
+}
+.project-section-content-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px 8px 12px 0px;
+  box-sizing: border-box;
+}
+.project-section-content-card-footer-tag-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.project-section-content-card-footer-tag-list img {
+  background-color: #f5f5f515;
+  border-radius: 12px;
+  width: 50px;
+  height: 50px;
+  padding: 8px;
+  object-fit: contain;
+}
+.project-section-content-card-footer-project-link {
+  cursor: pointer;
+  color: rgb(160, 151, 167);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.project-section-content-card-footer-project-link:hover {
+  color: #8a72b6;
+}
+.project-section-content-card-footer-project-link p {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.05rem;
+  gap: 8px;
+}
+.project-section-content-card-footer-project-link p img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  position: relative;
+}
+.project-section-content-card-navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 4px;
+}
+.project-section-content-card-navigation button {
+  background-color: rgba(174, 132, 232, 0.1);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0px 2px 5px rgba(226, 226, 226, 0.2);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.project-section-content-card-navigation button:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0px 4px 10px rgba(197, 147, 255, 0.4);
+}
+.project-section-content-card-navigation button img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.project-section-exhibit-card {
+  padding: 30px 50px;
+}
+.project-section-exhibit-card-img-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+}
+.project-section-exhibit-card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1450px) {
+  .project-section-grid-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 1300px) {
   .intro-section-header p,
   .skill-section-header p,
-  .experience-section-header p {
+  .experience-section-header p,
+  .project-section-header p {
     font-size: 1rem;
   }
   .intro-section-header h2,
   .skill-section-header h2,
-  .experience-section-header h2 {
+  .experience-section-header h2,
+  .project-section-header h2 {
     font-size: 3rem;
   }
   .intro-section-description {
@@ -357,12 +565,14 @@ footer a {
 @media (max-width: 850px) {
   .intro-section-header p,
   .skill-section-header p,
-  .experience-section-header p {
+  .experience-section-header p,
+  .project-section-header p {
     font-size: 0.9rem;
   }
   .intro-section-header h2,
   .skill-section-header h2,
-  .experience-section-header h2 {
+  .experience-section-header h2,
+  .project-section-header h2 {
     font-size: 2.8rem;
   }
   .intro-section-description {
@@ -383,23 +593,27 @@ footer a {
 @media (max-width: 625px) {
   .intro-section-header p,
   .skill-section-header p
-  .experience-section-header p {
+  .experience-section-header p,
+  .project-section-header p {
     font-size: 0.8rem;
   }
   .intro-section-header h2,
   .skill-section-header h2,
-  .experience-section-header h2 {
+  .experience-section-header h2,
+  .project-section-header h2 {
     font-size: 2.5rem;
   }
   .intro-section-description {
     padding: 5px 15px;
     font-size: 0.85rem;
   }
-  .experience-section-header {
+  .experience-section-header,
+  .project-section-header {
     padding: 10px 0;
     margin: 0;
   }
-  .experience-section-header h2 {
+  .experience-section-header h2,
+  .project-section-header h2 {
     margin: 0;
   }
   .experience-section-download-button {
@@ -412,14 +626,69 @@ footer a {
     margin: 5px 16px;
     margin-left: 6px;
   }
+  .project-section-content-card-logo {
+    padding: 6px;
+    padding-bottom: 4px;
+  }
+  .project-section-content-card-logo img {
+    width: 54px;
+    height: 54px;
+  }
+  .project-section-content-card-text-title {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+  .project-section-content-card-text-desc,
+  .project-section-content-card-text-subdesc {
+    padding: 0px 3px;
+  }
+  .project-section-content-card-footer-tag-list {
+    gap: 0.4rem;
+  }
+  .project-section-content-card-footer-tag-list img {
+    width: 42px;
+    height: 42px;
+    padding: 6px;
+  }
+  .project-section-content-card-footer-project-link p {
+    font-size: 1rem;
+    gap: 6px;
+  }
+  .project-section-content-card-footer-project-link p img {
+    width: 12px;
+    height: 12px;
+  }
+  .project-section-content-card-navigation {
+    padding: 8px 2px;
+  }
+  .project-section-content-card-navigation button {
+    width: 42px;
+    height: 42px;
+    box-shadow: 0px 1px 3px rgba(226, 226, 226, 0.2);
+  }
+  .project-section-content-card-navigation button:hover {
+    box-shadow: 0px 2px 6px rgba(197, 147, 255, 0.4);
+  }
+  .project-section-content-card-navigation button img {
+    width: 13px;
+    height: 13px;
+  }
+  .project-section-exhibit-card {
+    padding: 20px 30px;
+  }
+  .project-section-exhibit-card-img-wrapper {
+    padding: 16px;
+  }
 }
 @media (max-width: 600px) {
-  .experience-section-header h2 {
+  .experience-section-header h2,
+  .project-section-header h2 {
     font-size: 2.4rem;
   }
 }
 @media (max-width: 490px) {
-  .experience-section-header h2 {
+  .experience-section-header h2,
+  .project-section-header h2 {
     font-size: 1.65rem;
   }
   .experience-section-download-button {
@@ -431,6 +700,63 @@ footer a {
     height: auto;
     margin: 6px 10px;
     margin-left: 6px;
+  }
+  .project-section-content-card-logo {
+    padding: 4px;
+    padding-bottom: 2px;
+  }
+  .project-section-content-card-logo img {
+    width: 48px;
+    height: 48px;
+  }
+  .project-section-content-card-text-title {
+    font-size: 1.3rem;
+    margin-top: 1.4rem;
+  }
+  .project-section-content-card-text-desc,
+  .project-section-content-card-text-subdesc {
+    padding: 0px 1px;
+  }
+  .project-section-content-card-footer-tag-list {
+    gap: 0.3rem;
+  }
+  .project-section-content-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .project-section-content-card-footer-tag-list img {
+    width: 38px;
+    height: 38px;
+    padding: 5px;
+  }
+  .project-section-content-card-footer-project-link p {
+    font-size: 0.9rem;
+    gap: 4px;
+  }
+  .project-section-content-card-footer-project-link p img {
+    width: 11px;
+    height: 11px;
+  }
+  .project-section-content-card-navigation {
+    padding: 4px 1px;
+  }
+  .project-section-content-card-navigation button {
+    width: 38px;
+    height: 38px;
+    box-shadow: 0px 1px 2px rgba(226, 226, 226, 0.2);
+  }
+  .project-section-content-card-navigation button:hover {
+    box-shadow: 0px 2px 4px rgba(197, 147, 255, 0.4);
+  }
+  .project-section-content-card-navigation button img {
+    width: 12px;
+    height: 12px;
+  }
+  .project-section-exhibit-card {
+    padding: 10px 16px;
+  }
+  .project-section-exhibit-card-img-wrapper {
+    padding: 12px;
   }
 }
 

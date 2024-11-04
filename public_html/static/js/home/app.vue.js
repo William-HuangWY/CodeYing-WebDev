@@ -40,7 +40,7 @@ app.component('hero-section', {
     template: `
     <section :class="className + '-container'">
       <navigator
-        :sections="['hero', 'intro', 'skills', 'experience']"
+        :sections="['hero', 'intro', 'skills', 'experience', 'project']"
         :nav-function="scrollToSection"
       ></navigator>
       <hero
@@ -367,6 +367,146 @@ app.component('experience-section', {
     `,
 });
 
+app.component('project-section', {
+    props: {
+        iconTheme: { type: String, default: 'Dark' },
+    },
+    data() {
+        return {
+            className: 'project-section',
+            linkIconSrc: `${srcURL}img/home/icons/arrow-up.png`,
+            arrowLeftIconSrc: `${srcURL}img/home/icons/left-arrow.png`,
+            arrowRightIconSrc: `${srcURL}img/home/icons/right-arrow.png`,
+            contentCardBg: `${srcURL}img/home/purple-spotlight-bg.png`,
+            selectedProjectIndex: 0,
+            projects: [
+                { // Interactive Developer Portfolio Website
+                    title: 'Interactive Developer Portfolio Website',
+                    desc: 'A responsive, interactive website built with Vue.js, showcasing through captivating 3D visualizations and smooth SPA navigation. It leverages component motion animations to create a seamless, immersive experience, allowing each section to fluidly transition in and out.',
+                    subdesc: 'Powered by Three.js for responsive 3D models and animations, Vue Router for intuitive single-page navigation, and jQuery for additional interactivity and UI effects.',
+                    imageSrc: `${srcURL}img/home/project/snapshot/interactive-developer-portfolio-website.png`,
+                    logoSrc: `${srcURL}img/home/project/title/interactive-developer-portfolio-website.png`,
+                    tags: [
+                        { name: 'Vue.JS', path: `${srcURL}img/home/project/tech/VueJS-${this.iconTheme}.svg` },
+                        { name: 'THREE', path: `${srcURL}img/home/project/tech/ThreeJS-${this.iconTheme}.svg` },
+                        { name: 'CSS', path: `${srcURL}img/home/project/tech/CSS-${this.iconTheme}.svg` },
+                    ],
+                    href: 'https://github.com/William-HuangWY/CodeYing-WebDev'
+                },
+                { // Roguelike Deck Building Game Dev
+                    title: 'Roguelike Deck Building Game Dev',
+                    desc: 'A roguelike deck-building card game titled "Slay the Empire," inspired by "Slay the Spire." Developed with simple pixel art created in Aseprite, the game introduces unique gameplay mechanics and immersive strategies.',
+                    subdesc: 'Features animated sprites, an event-driven system, and both basic and advanced Pygame concepts. Planned for a future release on the Steam platform to showcase an engaging, retro-inspired experience.',
+                    imageSrc: `${srcURL}img/home/project/snapshot/roguelike-deck-building-game-dev.png`,
+                    logoSrc: `${srcURL}img/home/project/title/roguelike-deck-building-game-dev.png`,
+                    tags: [
+                        { name: 'Pygame', path: `${srcURL}img/home/project/tech/Pygame-Optimizes.svg` },
+                        { name: 'Aseprite', path: `${srcURL}img/home/project/tech/Aseprite.svg` },
+                    ],
+                    href: 'https://github.com/William-HuangWY/SlayTheEmpire'
+                },
+                { // Ecology 3D Simulation
+                    title: 'Ecology 3D Simulation',
+                    desc: 'A Unity-based sandbox simulation that mimics interactions between workers and hidden killers aboard a spaceship, reminiscent of "Among Us." Players engage in a battle for survival and victory.',
+                    subdesc: 'This project employs artificial intelligence to create a dynamic environment where each character interacts with others and the surroundings, using intelligence and strategy to outwit opponents. Developed in C# with significant components in ShaderLab and HLSL, this simulation showcases a unique experience.',
+                    imageSrc: `${srcURL}img/home/project/snapshot/ecology-3d-simulation.png`,
+                    logoSrc: `${srcURL}img/home/project/title/ecology-3d-simulation.png`,
+                    tags: [
+                        { name: 'Unity', path: `${srcURL}img/home/project/tech/Unity-${this.iconTheme}.svg` },
+                        { name: 'C#', path: `${srcURL}img/home/project/tech/CS.svg` },
+                    ],
+                    href: 'https://github.com/UnicSix/ecology_3d'
+                },
+                { // Web Game - Sliding Puzzle
+                    title: 'Web Game - Sliding Puzzle',
+                    desc: 'An simple web-based sliding puzzle game built with Vue.js and CSS, providing a fun and interactive way to challenge your problem-solving skills.',
+                    subdesc: 'Players can enjoy a responsive design and solid control. This project showcases the capabilities of Vue.js for building interactive SPA routing and CSS grid for styling, making it an enjoyable experience for puzzle enthusiasts. The game can be directly played at the below link!',
+                    imageSrc: `${srcURL}img/home/project/snapshot/web-game-sliding-puzzle.png`,
+                    logoSrc: `${srcURL}img/home/project/title/web-game-sliding-puzzle.png`,
+                    tags: [
+                        { name: 'Vue.JS', path: `${srcURL}img/home/project/tech/VueJS-${this.iconTheme}.svg` },
+                        { name: 'CSS', path: `${srcURL}img/home/project/tech/CSS-${this.iconTheme}.svg` },
+                    ],
+                    href: 'https://weiyinghuang.com/game/sliding-puzzle'
+                },
+                { // Problem Solving Journey
+                    title: 'Problem Solving Journey',
+                    desc: 'An ongoing exploration into complex algorithms and data structures, progressively solving new challenges.',
+                    subdesc: 'Shares selected well-perform solutions and insights from various problem-solving experiences, embracing growth in competitive programming.',
+                    imageSrc: `${srcURL}img/home/project/snapshot/problem-solving.png`,
+                    logoSrc: `${srcURL}img/home/project/title/problem-solving.png`,
+                    tags: [
+                        { name: 'LeetCode', path: `${srcURL}img/home/project/tech/Leetcode.svg` },
+                    ],
+                    href: 'https://leetcode.com/u/user9645eb/'
+                },
+            ],
+        }
+    },
+    methods: {
+        handleNavigation(direction) {
+            if (direction === 'previous')
+                this.selectedProjectIndex = this.selectedProjectIndex === 0 ? this.projects.length - 1 : this.selectedProjectIndex - 1;
+            else
+                this.selectedProjectIndex = this.selectedProjectIndex === this.projects.length - 1 ? 0 : this.selectedProjectIndex + 1;
+        },
+    },
+    computed: {
+        currentProject() {
+          return this.projects[this.selectedProjectIndex];
+        },
+    },
+    template: `
+    <section :class="className + '-container'">
+      <div :class="className + '-content'">
+        <div :class="className + '-header'">
+          <h2>Project&nbsp;&nbsp;Work</h2>
+          <p>what I'm working on ?</p>
+        </div>
+        
+        <div :class="className + '-grid-wrapper'">
+          <div :class="className + '-content-card'" :style="{ backgroundImage: contentCardBg ? 'url(' + contentCardBg + ')' : '' }">
+            <div :class="className + '-content-card-logo'">
+              <img :src="currentProject.logoSrc" alt="project-logo" />
+            </div>
+            <div :class="className + '-content-card-text'">
+              <p :class="className + '-content-card-text-title'">{{ currentProject.title }}</p>
+              <p :class="className + '-content-card-text-desc'">{{ currentProject.desc }}</p>
+              <p :class="className + '-content-card-text-subdesc'">{{ currentProject.subdesc }}</p>
+            </div>
+
+            <div :class="className + '-content-card-footer'">
+              <div :class="className + '-content-card-footer-tag-list'">
+                <div v-for="(tag, index) in currentProject.tags" :key="index">
+                  <img :src="tag.path" :title="tag.name" :alt="tag.name" />
+                </div>
+              </div>
+              <a :class="className + '-content-card-footer-project-link'" :href="currentProject.href" target="_blank">
+                <p>Check Out Project<img :src="linkIconSrc" alt="arrow"/></p>
+              </a>
+            </div>
+
+            <div :class="className + '-content-card-navigation'">
+              <button @click="handleNavigation('previous')">
+                <img :src="arrowLeftIconSrc" alt="left arrow"/>
+              </button>
+              <button @click="handleNavigation('next')">
+                <img :src="arrowRightIconSrc" alt="right arrow"/>
+              </button>
+            </div>
+          </div>
+
+          <div :class="className + '-exhibit-card'" :style="{ backgroundImage: contentCardBg ? 'url(' + contentCardBg + ')' : '' }">
+            <div :class="className + '-exhibit-card-img-wrapper'">
+              <img :src="currentProject.imageSrc" alt="project-image"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    `,
+});
+
 
 const homePage = {
     template: `
@@ -374,6 +514,7 @@ const homePage = {
       <intro-section id="intro"></intro-section>
       <skill-section id="skills"></skill-section>
       <experience-section id="experience"></experience-section>
+      <project-section id="project"></project-section>
     `,
 };
 
@@ -385,7 +526,7 @@ const blogPage = {
     },
     template: `
     <div :class="className + '-container'">
-      <h2>This is Blog Page</h2>
+      <h2>(Blog Page)</h2>
     </div>
     `,
 };
@@ -398,7 +539,7 @@ const contactPage = {
     },
     template: `
       <div :class="className + '-container'">
-        <h2>This is Contact Page</h2>
+        <h2>(Contact Page)</h2>
       </div>
     `,
 };
