@@ -876,7 +876,7 @@ footer a {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 .contact-page-avatar {
   width: 84px;
@@ -922,4 +922,50 @@ footer a {
 .contact-page-send-btn:hover {
   background-color: #6a00e5;
   box-shadow: none;
+}
+
+@media (max-width: 850px) {
+  .blog-page-title {
+    font-size: 3.5rem;
+  }
+  .blog-page-subtitle {
+    font-size: 0.8rem;
+  }
+  .blog-page-notify-wrapper {
+    margin-bottom: 6px;
+  }
+  .blog-page-input {
+    padding: 8px 8px;
+    font-size: 0.9rem;
+    width: 180px;
+  }
+  .blog-page-notify-btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+  .blog-page-notify-note {
+    font-size: 0.75rem;
+  }
+
+  .contact-page-avatar {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+  }
+  .contact-page-content h2 {
+    font-size: 2.4rem;
+    padding-right: 10px;
+  }
+  .contact-page-input, .contact-page-textarea {
+    padding: 16px;
+    margin-bottom: 18px;
+    font-size: 0.68rem;
+  }
+  .contact-page-textarea {
+    min-height: 220px;
+  }
+  .contact-page-send-btn {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
 }
